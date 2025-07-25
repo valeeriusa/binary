@@ -492,11 +492,12 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 10000;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .boot-screen.hidden {
     opacity: 0;
+    transform: scale(0.9);
     pointer-events: none;
 }
 
@@ -544,7 +545,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, #64b5f6, #2196f3);
     border-radius: 2px;
-    animation: progressLoad 3s ease-in-out;
+    animation: progressLoad 1.5s ease-in-out;
 }
 
 .progress-text {

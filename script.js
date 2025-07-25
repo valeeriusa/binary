@@ -20,34 +20,51 @@ class JobOS {
     init() {
         this.setupEventListeners();
         this.updateTime();
+        
+        // Ensure boot completes within 3 seconds max
         this.bootSequence();
+        
+        // Fallback: force hide boot screen after 3 seconds
+        setTimeout(() => {
+            const bootScreen = document.querySelector('.boot-screen');
+            if (bootScreen && !bootScreen.classList.contains('hidden')) {
+                bootScreen.classList.add('hidden');
+                console.log('Boot sequence completed via fallback');
+            }
+        }, 3000);
+        
         setInterval(() => this.updateTime(), 1000);
     }
 
     bootSequence() {
-        // Simulate loading job data
-        const progressFill = document.querySelector('.progress-fill');
+        // Accelerated loading for better UX
         const progressText = document.querySelector('.progress-text');
         
         const loadingSteps = [
             'Loading job opportunities...',
             'Connecting to employers...',
             'Preparing your dashboard...',
-            'Almost ready...'
+            'Ready!'
         ];
         
         let step = 0;
         const stepInterval = setInterval(() => {
             if (step < loadingSteps.length) {
-                progressText.textContent = loadingSteps[step];
+                if (progressText) {
+                    progressText.textContent = loadingSteps[step];
+                }
                 step++;
             } else {
                 clearInterval(stepInterval);
+                // Quick boot - hide after 2 seconds total
                 setTimeout(() => {
-                    document.querySelector('.boot-screen').classList.add('hidden');
-                }, 500);
+                    const bootScreen = document.querySelector('.boot-screen');
+                    if (bootScreen) {
+                        bootScreen.classList.add('hidden');
+                    }
+                }, 200);
             }
-        }, 750);
+        }, 400); // Faster steps
     }
 
     setupEventListeners() {
@@ -1312,8 +1329,15 @@ class JobOS {
         const newJobsCount = Math.floor(Math.random() * 5) + 10;
         const applicationsCount = Math.floor(Math.random() * 3) + 3;
         
-        document.querySelector('.new-jobs').textContent = `${newJobsCount} joburi noi`;
-        document.querySelector('.applications').textContent = `${applicationsCount} aplicări`;
+        const newJobsElement = document.querySelector('.new-jobs');
+        const applicationsElement = document.querySelector('.applications');
+        
+        if (newJobsElement) {
+            newJobsElement.textContent = `${newJobsCount} joburi noi`;
+        }
+        if (applicationsElement) {
+            applicationsElement.textContent = `${applicationsCount} aplicări`;
+        }
         
         // Update profile views randomly
         const profileViews = Math.floor(Math.random() * 50) + 200;

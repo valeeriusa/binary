@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobOS - Debug Version</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .logo { font-size: 48px; margin-bottom: 20px; }
+        .message { font-size: 18px; margin-bottom: 30px; }
+        .btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        .status { margin-top: 30px; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="logo">💼 JobOS</div>
+    <div class="message">Sistemul de Operare pentru Carieră</div>
+    
+    <div>
+        <a href="index.html" class="btn">🚀 Lansează JobOS</a>
+        <a href="#" class="btn" onclick="testConnection()">🔧 Test Conexiune</a>
+    </div>
+    
+    <div class="status" id="status">
+        ✅ Server activ și funcțional<br>
+        🌐 Cloudflare Tunnel: trim-limits-televisions-powell.trycloudflare.com<br>
+        📱 Version: 2.0 - Optimizat pentru speed
+    </div>
+
+    <script>
+        function testConnection() {
+            document.getElementById('status').innerHTML = '🔄 Testez conexiunea...';
+            
+            fetch('index.html')
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('status').innerHTML = '✅ Site-ul se încarcă perfect!<br>📍 Redirecting către JobOS...';
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 1500);
+                    } else {
+                        document.getElementById('status').innerHTML = '❌ Problemă la încărcare: ' + response.status;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('status').innerHTML = '❌ Eroare: ' + error.message;
+                });
+        }
+
+        // Auto-test after 2 seconds
+        setTimeout(() => {
+            console.log('JobOS Debug Version loaded successfully');
+        }, 1000);
+    </script>
+</body>
+</html>
