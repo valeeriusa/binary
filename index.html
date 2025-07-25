@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobsSpace - Ultra Modern Job Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-4"></div>
+    </div>
+
+    <!-- Transparent Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <span class="logo-text">JobsSpace</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#jobs" class="nav-link">Jobs</a>
+                <a href="#companies" class="nav-link">Companies</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn-ghost">Sign In</button>
+                <button class="btn-primary">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>🚀 New opportunities daily</span>
+                </div>
+                <h1 class="hero-title">
+                    Find Your Dream Job in the
+                    <span class="gradient-text">Digital Age</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover thousands of job opportunities with all the information you need. 
+                    Connect with top companies and take your career to the next level.
+                </p>
+                <div class="hero-search">
+                    <div class="search-container">
+                        <div class="search-field">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search jobs, companies, skills...">
+                        </div>
+                        <div class="search-field">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" placeholder="Location">
+                        </div>
+                        <button class="search-btn">
+                            <span>Search Jobs</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Active Jobs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100K+</div>
+                        <div class="stat-label">Job Seekers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section" id="jobs">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Featured <span class="gradient-text">Opportunities</span>
+                </h2>
+                <p class="section-subtitle">Handpicked jobs from top companies</p>
+            </div>
+
+            <!-- Job Filters -->
+            <div class="job-filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All Jobs</button>
+                    <button class="filter-tab" data-filter="remote">Remote</button>
+                    <button class="filter-tab" data-filter="fulltime">Full-time</button>
+                    <button class="filter-tab" data-filter="parttime">Part-time</button>
+                    <button class="filter-tab" data-filter="freelance">Freelance</button>
+                </div>
+                <div class="filter-actions">
+                    <button class="filter-btn">
+                        <i class="fas fa-sliders-h"></i>
+                        Filters
+                    </button>
+                    <button class="view-toggle" id="viewToggle">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Jobs Grid -->
+            <div class="jobs-grid" id="jobsGrid">
+                <!-- Job Card 1 -->
+                <div class="job-card" data-category="remote fulltime">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <div class="logo-gradient logo-1">T</div>
+                        </div>
+                        <div class="job-bookmark">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <h3 class="job-title">Senior React Developer</h3>
+                        <p class="company-name">TechFlow Inc.</p>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Remote • Full-time</span>
+                        </div>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag tag-tech">React</span>
+                        <span class="tag tag-tech">TypeScript</span>
+                        <span class="tag tag-level">Senior</span>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">$80k - $120k</div>
+                        <button class="apply-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="job-card" data-category="fulltime">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <div class="logo-gradient logo-2">D</div>
+                        </div>
+                        <div class="job-bookmark">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <h3 class="job-title">UX/UI Designer</h3>
+                        <p class="company-name">DesignStudio Pro</p>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco • On-site</span>
+                        </div>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag tag-design">Figma</span>
+                        <span class="tag tag-design">Adobe XD</span>
+                        <span class="tag tag-level">Mid-level</span>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">$70k - $95k</div>
+                        <button class="apply-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="job-card" data-category="remote parttime">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <div class="logo-gradient logo-3">M</div>
+                        </div>
+                        <div class="job-bookmark">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <h3 class="job-title">Digital Marketing Manager</h3>
+                        <p class="company-name">MarketGrow Agency</p>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Remote • Part-time</span>
+                        </div>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag tag-marketing">SEO</span>
+                        <span class="tag tag-marketing">PPC</span>
+                        <span class="tag tag-level">Senior</span>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">$45k - $65k</div>
+                        <button class="apply-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 4 -->
+                <div class="job-card" data-category="freelance">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <div class="logo-gradient logo-4">S</div>
+                        </div>
+                        <div class="job-bookmark">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <h3 class="job-title">Python Data Scientist</h3>
+                        <p class="company-name">StartupXYZ</p>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Remote • Freelance</span>
+                        </div>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag tag-data">Python</span>
+                        <span class="tag tag-data">ML</span>
+                        <span class="tag tag-level">Expert</span>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">$90k - $130k</div>
+                        <button class="apply-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 5 -->
+                <div class="job-card" data-category="remote fulltime">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <div class="logo-gradient logo-5">C</div>
+                        </div>
+                        <div class="job-bookmark">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <h3 class="job-title">DevOps Engineer</h3>
+                        <p class="company-name">CloudTech Solutions</p>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Remote • Full-time</span>
+                        </div>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag tag-devops">Docker</span>
+                        <span class="tag tag-devops">AWS</span>
+                        <span class="tag tag-level">Senior</span>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">$85k - $115k</div>
+                        <button class="apply-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 6 -->
+                <div class="job-card" data-category="fulltime">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <div class="logo-gradient logo-6">P</div>
+                        </div>
+                        <div class="job-bookmark">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <h3 class="job-title">Product Manager</h3>
+                        <p class="company-name">ProductFlow Inc.</p>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New York • Hybrid</span>
+                        </div>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag tag-product">Strategy</span>
+                        <span class="tag tag-product">Agile</span>
+                        <span class="tag tag-level">Senior</span>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">$95k - $140k</div>
+                        <button class="apply-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="load-more">
+                <button class="btn-secondary">
+                    <span>Load More Jobs</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="companies-section" id="companies">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Trusted by <span class="gradient-text">Top Companies</span>
+                </h2>
+                <p class="section-subtitle">Join professionals from leading organizations</p>
+            </div>
+            
+            <div class="companies-grid">
+                <div class="company-card">
+                    <div class="company-logo-large">
+                        <div class="logo-gradient logo-1">G</div>
+                    </div>
+                    <h4>Google</h4>
+                    <p>150+ open positions</p>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo-large">
+                        <div class="logo-gradient logo-2">M</div>
+                    </div>
+                    <h4>Microsoft</h4>
+                    <p>80+ open positions</p>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo-large">
+                        <div class="logo-gradient logo-3">A</div>
+                    </div>
+                    <h4>Apple</h4>
+                    <p>120+ open positions</p>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo-large">
+                        <div class="logo-gradient logo-4">N</div>
+                    </div>
+                    <h4>Netflix</h4>
+                    <p>60+ open positions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Find Your Dream Job?</h2>
+                <p class="cta-subtitle">Join thousands of professionals who found their perfect career match</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary-large">
+                        <span>Start Job Search</span>
+                        <i class="fas fa-rocket"></i>
+                    </button>
+                    <button class="btn-ghost-large">
+                        <span>Post a Job</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <span class="logo-text">JobsSpace</span>
+                    </div>
+                    <p class="footer-description">
+                        The modern way to find your next career opportunity. 
+                        Connect, apply, and grow with top companies worldwide.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>For Job Seekers</h4>
+                        <a href="#">Browse Jobs</a>
+                        <a href="#">Career Advice</a>
+                        <a href="#">Resume Builder</a>
+                        <a href="#">Salary Guide</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>For Employers</h4>
+                        <a href="#">Post Jobs</a>
+                        <a href="#">Find Candidates</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">Enterprise</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 JobsSpace. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
