@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary OS - Desktop Environment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Desktop Background -->
+    <div class="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" data-app="terminal">
+                <i class="fas fa-terminal"></i>
+                <span>Terminal</span>
+            </div>
+            <div class="desktop-icon" data-app="file-manager">
+                <i class="fas fa-folder"></i>
+                <span>Files</span>
+            </div>
+            <div class="desktop-icon" data-app="text-editor">
+                <i class="fas fa-edit"></i>
+                <span>Editor</span>
+            </div>
+            <div class="desktop-icon" data-app="calculator">
+                <i class="fas fa-calculator"></i>
+                <span>Calculator</span>
+            </div>
+            <div class="desktop-icon" data-app="browser">
+                <i class="fas fa-globe"></i>
+                <span>Browser</span>
+            </div>
+            <div class="desktop-icon" data-app="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </div>
+        </div>
+
+        <!-- Windows Container -->
+        <div class="windows-container"></div>
+
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <div class="start-menu-button">
+                <i class="fab fa-binary"></i>
+                <span>Binary</span>
+            </div>
+            <div class="taskbar-apps"></div>
+            <div class="system-tray">
+                <div class="system-time">
+                    <span class="time"></span>
+                    <span class="date"></span>
+                </div>
+                <div class="system-icons">
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-volume-up"></i>
+                    <i class="fas fa-battery-three-quarters"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Menu -->
+        <div class="start-menu">
+            <div class="start-menu-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <span class="username">User</span>
+                        <span class="user-status">Online</span>
+                    </div>
+                </div>
+            </div>
+            <div class="start-menu-apps">
+                <div class="app-category">
+                    <h3>Applications</h3>
+                    <div class="app-grid">
+                        <div class="start-app" data-app="terminal">
+                            <i class="fas fa-terminal"></i>
+                            <span>Terminal</span>
+                        </div>
+                        <div class="start-app" data-app="file-manager">
+                            <i class="fas fa-folder"></i>
+                            <span>File Manager</span>
+                        </div>
+                        <div class="start-app" data-app="text-editor">
+                            <i class="fas fa-edit"></i>
+                            <span>Text Editor</span>
+                        </div>
+                        <div class="start-app" data-app="calculator">
+                            <i class="fas fa-calculator"></i>
+                            <span>Calculator</span>
+                        </div>
+                        <div class="start-app" data-app="browser">
+                            <i class="fas fa-globe"></i>
+                            <span>Web Browser</span>
+                        </div>
+                        <div class="start-app" data-app="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-category">
+                    <h3>System</h3>
+                    <div class="app-grid">
+                        <div class="start-app" data-action="shutdown">
+                            <i class="fas fa-power-off"></i>
+                            <span>Shutdown</span>
+                        </div>
+                        <div class="start-app" data-action="restart">
+                            <i class="fas fa-redo"></i>
+                            <span>Restart</span>
+                        </div>
+                        <div class="start-app" data-action="logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Boot Screen -->
+        <div class="boot-screen">
+            <div class="boot-logo">
+                <i class="fab fa-binary"></i>
+                <h1>Binary OS</h1>
+                <div class="loading-spinner"></div>
+                <p>Loading desktop environment...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
