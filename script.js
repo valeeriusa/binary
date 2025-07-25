@@ -338,9 +338,146 @@ class JobOS {
         }
     }
 
-    // Add stub methods for other apps
     createInterviewsContent() {
-        return `<div style="padding: 20px;"><h2 style="color: #1e3c72;">Interviuri Programate</h2><p>Nu există interviuri programate în acest moment.</p></div>`;
+        const interviews = [
+            {
+                id: 1,
+                company: 'TechCorp SRL',
+                position: 'Senior React Developer',
+                date: '2024-12-28',
+                time: '14:00',
+                type: 'Video Call',
+                interviewer: 'Ana Popescu',
+                status: 'confirmed',
+                platform: 'Google Meet'
+            },
+            {
+                id: 2,
+                company: 'Digital Agency',
+                position: 'Marketing Manager',
+                date: '2024-12-30',
+                time: '10:30',
+                type: 'La sediu',
+                interviewer: 'Mihai Ionescu',
+                status: 'pending',
+                address: 'Strada Victoriei 15, Cluj-Napoca'
+            }
+        ];
+
+        return `
+            <div style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                    <h2 style="color: #1e3c72; margin: 0;">Interviuri Programate</h2>
+                    <button class="job-btn primary" onclick="jobOS.scheduleInterview()">
+                        <i class="fas fa-plus"></i> Programează Interviu
+                    </button>
+                </div>
+                
+                <div style="display: grid; gap: 20px;">
+                    ${interviews.map(interview => `
+                        <div class="interview-card" style="background: white; border: 1px solid #e0e0e0; border-radius: 15px; padding: 20px; position: relative;">
+                            <div class="interview-status ${interview.status}" style="position: absolute; top: 15px; right: 15px; padding: 5px 12px; border-radius: 12px; font-size: 11px; font-weight: bold;">
+                                ${interview.status === 'confirmed' ? 'CONFIRMAT' : 'ÎN AȘTEPTARE'}
+                            </div>
+                            
+                            <div style="display: flex; align-items: start; gap: 20px; margin-bottom: 20px;">
+                                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: bold;">
+                                    ${interview.company.split(' ').map(w => w[0]).join('').substring(0, 2)}
+                                </div>
+                                <div style="flex: 1;">
+                                    <h3 style="color: #1e3c72; margin-bottom: 5px; font-size: 18px;">${interview.position}</h3>
+                                    <p style="color: #666; margin-bottom: 10px; font-size: 16px; font-weight: 500;">${interview.company}</p>
+                                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                        <div style="display: flex; align-items: center; gap: 8px; color: #555;">
+                                            <i class="fas fa-calendar" style="color: #64b5f6;"></i>
+                                            <span>${new Date(interview.date).toLocaleDateString('ro-RO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 8px; color: #555;">
+                                            <i class="fas fa-clock" style="color: #64b5f6;"></i>
+                                            <span>${interview.time}</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 8px; color: #555;">
+                                            <i class="fas fa-${interview.type === 'Video Call' ? 'video' : 'building'}" style="color: #64b5f6;"></i>
+                                            <span>${interview.type}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #f8f9ff; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                                    <i class="fas fa-user" style="color: #1e3c72;"></i>
+                                    <strong>Intervievator:</strong> ${interview.interviewer}
+                                </div>
+                                ${interview.platform ? `
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-video" style="color: #1e3c72;"></i>
+                                        <strong>Platformă:</strong> ${interview.platform}
+                                    </div>
+                                ` : ''}
+                                ${interview.address ? `
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-map-marker-alt" style="color: #1e3c72;"></i>
+                                        <strong>Adresă:</strong> ${interview.address}
+                                    </div>
+                                ` : ''}
+                            </div>
+                            
+                            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                                <button class="job-btn secondary" onclick="jobOS.rescheduleInterview(${interview.id})">
+                                    <i class="fas fa-edit"></i> Reprogramează
+                                </button>
+                                <button class="job-btn primary" onclick="jobOS.joinInterview(${interview.id})">
+                                    <i class="fas fa-${interview.type === 'Video Call' ? 'video' : 'directions'}"></i> 
+                                    ${interview.type === 'Video Call' ? 'Alătură-te' : 'Indicații'}
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div style="margin-top: 30px; background: linear-gradient(135deg, #e8f5e8 0%, #f3e5f5 100%); padding: 20px; border-radius: 15px;">
+                    <h3 style="color: #1e3c72; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-lightbulb"></i>
+                        Sfaturi pentru interviu
+                    </h3>
+                    <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
+                        <li style="display: flex; align-items: center; gap: 10px; color: #555;">
+                            <i class="fas fa-check-circle" style="color: #4caf50;"></i>
+                            Testează tehnologia cu 30 min înainte
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: #555;">
+                            <i class="fas fa-check-circle" style="color: #4caf50;"></i>
+                            Pregătește întrebări despre companie
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: #555;">
+                            <i class="fas fa-check-circle" style="color: #4caf50;"></i>
+                            Îmbracă-te profesional
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: #555;">
+                            <i class="fas fa-check-circle" style="color: #4caf50;"></i>
+                            Ajunge cu 10 minute mai devreme
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `;
+    }
+
+    scheduleInterview() {
+        this.showNotification('Funcționalitatea de programare interviuri va fi disponibilă în curând!', 'info');
+    }
+
+    rescheduleInterview(interviewId) {
+        this.showNotification('Cerere de reprogramare trimisă!', 'success');
+    }
+
+    joinInterview(interviewId) {
+        this.showNotification('Deschidere link interviu...', 'info');
+        // Simulate opening interview link
+        setTimeout(() => {
+            window.open('https://meet.google.com/demo', '_blank');
+        }, 1000);
     }
 
     createProfileContent() {
@@ -348,7 +485,308 @@ class JobOS {
     }
 
     createNotificationsContent() {
-        return `<div style="padding: 20px;"><h2 style="color: #1e3c72;">Notificări</h2><p>Nu există notificări noi.</p></div>`;
+        const notifications = [
+            {
+                id: 1,
+                type: 'job_match',
+                title: 'Job nou potrivit pentru tine!',
+                message: 'Frontend Developer la StartupTech - Salariu 6.000-9.000 RON',
+                time: '5 minute în urmă',
+                unread: true,
+                action: 'Vezi jobul',
+                icon: 'fa-briefcase',
+                color: '#2196f3'
+            },
+            {
+                id: 2,
+                type: 'application_status',
+                title: 'Aplicare vizualizată',
+                message: 'TechCorp SRL a vizualizat aplicarea ta pentru Senior React Developer',
+                time: '2 ore în urmă',
+                unread: true,
+                action: 'Vezi detalii',
+                icon: 'fa-eye',
+                color: '#ff9800'
+            },
+            {
+                id: 3,
+                type: 'interview_reminder',
+                title: 'Reminder interviu',
+                message: 'Ai un interviu mâine la ora 14:00 cu TechCorp SRL',
+                time: '1 zi în urmă',
+                unread: false,
+                action: 'Vezi interviul',
+                icon: 'fa-calendar-check',
+                color: '#4caf50'
+            },
+            {
+                id: 4,
+                type: 'profile_view',
+                title: 'Profil vizualizat',
+                message: '3 companii noi au vizualizat profilul tău săptămâna aceasta',
+                time: '2 zile în urmă',
+                unread: false,
+                action: 'Vezi profilul',
+                icon: 'fa-user',
+                color: '#9c27b0'
+            },
+            {
+                id: 5,
+                type: 'skill_recommendation',
+                title: 'Recomandare competență',
+                message: 'Adaugă TypeScript în profilul tău pentru mai multe oportunități',
+                time: '3 zile în urmă',
+                unread: false,
+                action: 'Actualizează profilul',
+                icon: 'fa-star',
+                color: '#ff5722'
+            }
+        ];
+
+        const unreadCount = notifications.filter(n => n.unread).length;
+
+        return `
+            <div style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                    <div>
+                        <h2 style="color: #1e3c72; margin: 0;">Notificări</h2>
+                        <p style="color: #666; margin: 5px 0 0 0;">${unreadCount} notificări necitite</p>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="job-btn secondary" onclick="jobOS.markAllAsRead()">
+                            <i class="fas fa-check-double"></i> Marchează toate ca citite
+                        </button>
+                        <button class="job-btn primary" onclick="jobOS.configureNotifications()">
+                            <i class="fas fa-cog"></i> Setări
+                        </button>
+                    </div>
+                </div>
+
+                <div style="display: grid; gap: 15px;">
+                    ${notifications.map(notification => `
+                        <div class="notification-item ${notification.unread ? 'unread' : ''}" 
+                             style="background: white; border: 1px solid ${notification.unread ? '#64b5f6' : '#e0e0e0'}; 
+                                    border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.3s ease;
+                                    border-left: 4px solid ${notification.color};"
+                             onclick="jobOS.openNotification(${notification.id})">
+                            
+                            <div style="display: flex; align-items: start; gap: 15px;">
+                                <div style="width: 50px; height: 50px; background: ${notification.color}; 
+                                           border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+                                           color: white; font-size: 18px; flex-shrink: 0;">
+                                    <i class="fas ${notification.icon}"></i>
+                                </div>
+                                
+                                <div style="flex: 1;">
+                                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                        <h3 style="margin: 0; color: #1e3c72; font-size: 16px; font-weight: 600;">
+                                            ${notification.title}
+                                            ${notification.unread ? '<span style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; display: inline-block; margin-left: 8px;"></span>' : ''}
+                                        </h3>
+                                        <span style="color: #999; font-size: 12px; white-space: nowrap; margin-left: 10px;">
+                                            ${notification.time}
+                                        </span>
+                                    </div>
+                                    
+                                    <p style="margin: 0 0 15px 0; color: #555; line-height: 1.5;">
+                                        ${notification.message}
+                                    </p>
+                                    
+                                    <button class="job-btn primary small" 
+                                            style="padding: 8px 15px; font-size: 13px;"
+                                            onclick="event.stopPropagation(); jobOS.handleNotificationAction(${notification.id})">
+                                        ${notification.action}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <button class="job-btn secondary" onclick="jobOS.loadMoreNotifications()">
+                        <i class="fas fa-chevron-down"></i> Încarcă mai multe notificări
+                    </button>
+                </div>
+
+                <div style="margin-top: 30px; background: #f8f9ff; padding: 20px; border-radius: 15px;">
+                    <h3 style="color: #1e3c72; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-bell"></i>
+                        Setări Notificări
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="checkbox" checked style="transform: scale(1.2);">
+                            <span>Job-uri noi potrivite</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="checkbox" checked style="transform: scale(1.2);">
+                            <span>Actualizări aplicări</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="checkbox" checked style="transform: scale(1.2);">
+                            <span>Reminder interviuri</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="checkbox" style="transform: scale(1.2);">
+                            <span>Newsletter săptămânal</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    markAllAsRead() {
+        this.showNotification('Toate notificările au fost marcate ca citite!', 'success');
+        // Refresh notifications view
+        setTimeout(() => {
+            const activeWindow = document.querySelector('.window[id*="notifications"]');
+            if (activeWindow) {
+                const content = activeWindow.querySelector('.window-content');
+                content.innerHTML = this.createNotificationsContent();
+            }
+        }, 1000);
+    }
+
+    configureNotifications() {
+        this.showNotification('Setări notificări actualizate!', 'success');
+    }
+
+    openNotification(notificationId) {
+        this.showNotification('Deschidere notificare...', 'info');
+        // Simulate opening related content based on notification type
+    }
+
+    handleNotificationAction(notificationId) {
+        this.showNotification('Acțiune executată!', 'success');
+    }
+
+    loadMoreNotifications() {
+        this.showNotification('Se încarcă mai multe notificări...', 'info');
+    }
+
+    // Chat System
+    toggleChat() {
+        const chatWidget = document.getElementById('chat-widget');
+        chatWidget.classList.toggle('minimized');
+    }
+
+    handleChatInput(event) {
+        if (event.key === 'Enter') {
+            this.sendChatMessage();
+        }
+    }
+
+    sendChatMessage() {
+        const chatInput = document.querySelector('.chat-input');
+        const message = chatInput.value.trim();
+        
+        if (!message) return;
+        
+        // Add user message
+        this.addChatMessage(message, 'user');
+        chatInput.value = '';
+        
+        // Simulate bot response
+        setTimeout(() => {
+            this.showTypingIndicator();
+            setTimeout(() => {
+                this.hideTypingIndicator();
+                this.respondToMessage(message);
+            }, 1500);
+        }, 500);
+    }
+
+    addChatMessage(message, sender = 'bot') {
+        const chatMessages = document.getElementById('chat-messages');
+        const messageElement = document.createElement('div');
+        messageElement.className = `chat-message ${sender}`;
+        
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        
+        messageElement.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-${sender === 'user' ? 'user' : 'robot'}"></i>
+            </div>
+            <div class="message-content">
+                <div class="message-bubble">${message}</div>
+                <div class="message-time">${time}</div>
+            </div>
+        `;
+        
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    showTypingIndicator() {
+        const chatMessages = document.getElementById('chat-messages');
+        const typingElement = document.createElement('div');
+        typingElement.className = 'chat-message bot typing-indicator';
+        typingElement.id = 'typing-indicator';
+        
+        typingElement.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                <div class="message-bubble">
+                    <div class="typing-indicator">
+                        Scrie...
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        chatMessages.appendChild(typingElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    hideTypingIndicator() {
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    }
+
+    respondToMessage(userMessage) {
+        const responses = {
+            'salut': 'Salut! Cu ce te pot ajuta astăzi?',
+            'buna': 'Bună! Sunt aici să te ajut cu orice întrebări despre JobOS.',
+            'ajutor': 'Desigur! Pot să te ajut cu: căutarea de joburi, aplicări, CV-ul tău, interviuri și multe altele.',
+            'job': 'Poți căuta joburi folosind aplicația "Căutare Job" din desktop. Avem joburi noi zilnic!',
+            'cv': 'Pentru a-ți construi CV-ul, deschide aplicația "CV Builder" din meniul start sau desktop.',
+            'interviu': 'Vezi interviurile programate în aplicația "Interviuri". Îți voi trimite reminder-e automate.',
+            'salariu': 'Folosește "Calculator Salariu" pentru a afla salariul net din cel brut cu taxele din România.',
+            'mulțumesc': 'Cu plăcere! Dacă ai alte întrebări, sunt aici să te ajut.',
+            'default': 'Înțeleg! Pentru informații detaliate, explorează aplicațiile din JobOS sau contactează echipa noastră de suport.'
+        };
+        
+        // Simple keyword matching
+        let response = responses.default;
+        const lowerMessage = userMessage.toLowerCase();
+        
+        for (const keyword in responses) {
+            if (keyword !== 'default' && lowerMessage.includes(keyword)) {
+                response = responses[keyword];
+                break;
+            }
+        }
+        
+        // Special responses for specific questions
+        if (lowerMessage.includes('câte joburi')) {
+            response = `În acest moment avem ${this.jobData.length} joburi active în platformă, cu noi oportunități adăugate zilnic!`;
+        } else if (lowerMessage.includes('remote') || lowerMessage.includes('acasă')) {
+            const remoteJobs = this.jobData.filter(job => job.remote).length;
+            response = `Avem ${remoteJobs} joburi remote disponibile. Caută cu filtrul "Remote" activat!`;
+        }
+        
+        this.addChatMessage(response, 'bot');
     }
 
     createSkillsTestContent() {
@@ -783,7 +1221,9 @@ class JobOS {
                 description: 'Căutăm un dezvoltator React senior pentru echipa noastră dinamică. Vei lucra la proiecte inovatoare și vei avea oportunitatea să înveți tehnologii noi.',
                 tags: ['React', 'JavaScript', 'TypeScript', 'Node.js'],
                 posted: '2 zile în urmă',
-                remote: true
+                remote: true,
+                urgent: false,
+                benefits: ['Asigurare medicală', 'Tichete de masă', 'Bonus anual', 'Training-uri']
             },
             {
                 id: 2,
@@ -796,7 +1236,9 @@ class JobOS {
                 description: 'Responsabil cu strategiile de marketing digital și campanii online. Experiență în social media și Google Ads necesară.',
                 tags: ['Marketing Digital', 'Social Media', 'Google Ads', 'Analytics'],
                 posted: '1 zi în urmă',
-                remote: false
+                remote: false,
+                urgent: true,
+                benefits: ['Bonus performanță', 'Mașină de serviciu', 'Laptop']
             },
             {
                 id: 3,
@@ -809,18 +1251,89 @@ class JobOS {
                 description: 'Designer creativ pentru aplicații mobile și web. Cunoștințe Figma, Adobe Creative Suite necesare.',
                 tags: ['Figma', 'Adobe XD', 'Photoshop', 'UI/UX'],
                 posted: '3 zile în urmă',
-                remote: true
+                remote: true,
+                urgent: false,
+                benefits: ['Program flexibil', 'Zile libere suplimentare']
+            },
+            {
+                id: 4,
+                title: 'Data Scientist',
+                company: 'AI Innovations',
+                location: 'București',
+                salary: '9.000 - 15.000 RON',
+                type: 'Full-time',
+                experience: '4+ ani',
+                description: 'Analizează date complexe și dezvoltă modele de machine learning pentru proiecte enterprise.',
+                tags: ['Python', 'Machine Learning', 'SQL', 'TensorFlow'],
+                posted: '5 ore în urmă',
+                remote: true,
+                urgent: true,
+                benefits: ['Stock options', 'Budget educație', 'Concediu nelimitat']
+            },
+            {
+                id: 5,
+                title: 'DevOps Engineer',
+                company: 'CloudTech Solutions',
+                location: 'Iași',
+                salary: '7.500 - 11.000 RON',
+                type: 'Full-time',
+                experience: '3+ ani',
+                description: 'Gestionează infrastructura cloud și automatizează procesele de deployment.',
+                tags: ['AWS', 'Docker', 'Kubernetes', 'CI/CD'],
+                posted: '1 zi în urmă',
+                remote: true,
+                urgent: false,
+                benefits: ['Certificări plătite', 'Conferințe internaționale']
+            },
+            {
+                id: 6,
+                title: 'Product Manager',
+                company: 'StartupHub',
+                location: 'București',
+                salary: '8.500 - 13.000 RON',
+                type: 'Full-time',
+                experience: '5+ ani',
+                description: 'Coordonează dezvoltarea produselor digitale de la concept la lansare.',
+                tags: ['Product Strategy', 'Agile', 'Analytics', 'Leadership'],
+                posted: '4 zile în urmă',
+                remote: false,
+                urgent: false,
+                benefits: ['Equity', 'Team building lunar', 'Mentorship']
             }
         ];
+        
+        // Simulate real-time job updates
+        setInterval(() => {
+            this.updateJobStats();
+        }, 30000); // Update every 30 seconds
+    }
+
+    updateJobStats() {
+        const newJobsCount = Math.floor(Math.random() * 5) + 10;
+        const applicationsCount = Math.floor(Math.random() * 3) + 3;
+        
+        document.querySelector('.new-jobs').textContent = `${newJobsCount} joburi noi`;
+        document.querySelector('.applications').textContent = `${applicationsCount} aplicări`;
+        
+        // Update profile views randomly
+        const profileViews = Math.floor(Math.random() * 50) + 200;
+        const profileViewsElement = document.querySelector('.stat-item i.fa-eye + span');
+        if (profileViewsElement) {
+            profileViewsElement.textContent = `Vizualizări profil: ${profileViews}`;
+        }
     }
 
     generateJobList() {
         return this.jobData.map(job => `
-            <div class="job-item" onclick="jobOS.viewJobDetails(${job.id})">
+            <div class="job-item ${job.urgent ? 'urgent' : ''}" onclick="jobOS.viewJobDetails(${job.id})">
+                ${job.urgent ? '<div class="urgent-badge"><i class="fas fa-fire"></i> URGENT</div>' : ''}
                 <div class="job-header">
                     <div>
                         <div class="job-title">${job.title}</div>
-                        <div class="job-company">${job.company}</div>
+                        <div class="job-company">
+                            <i class="fas fa-building"></i>
+                            ${job.company}
+                        </div>
                     </div>
                     <div class="job-salary">${job.salary}</div>
                 </div>
@@ -838,8 +1351,15 @@ class JobOS {
                         <span>${job.experience}</span>
                     </div>
                     ${job.remote ? '<div class="job-meta-item"><i class="fas fa-home"></i><span>Remote</span></div>' : ''}
+                    <div class="job-meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>${job.posted}</span>
+                    </div>
                 </div>
                 <div class="job-description">${job.description}</div>
+                <div class="job-benefits">
+                    <strong>Beneficii:</strong> ${job.benefits.join(', ')}
+                </div>
                 <div class="job-tags">
                     ${job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join('')}
                 </div>
@@ -848,11 +1368,132 @@ class JobOS {
                         <i class="fas fa-heart"></i> Salvează
                     </button>
                     <button class="job-btn primary" onclick="event.stopPropagation(); jobOS.applyToJob(${job.id})">
-                        <i class="fas fa-paper-plane"></i> Aplică
+                        <i class="fas fa-paper-plane"></i> Aplică Acum
                     </button>
                 </div>
             </div>
         `).join('');
+    }
+
+    viewJobDetails(jobId) {
+        const job = this.jobData.find(j => j.id === jobId);
+        if (!job) return;
+        
+        const detailWindow = this.createJobDetailWindow(job);
+        document.querySelector('.windows-container').appendChild(detailWindow);
+        this.windows.push({ 
+            id: `job-detail-${jobId}`, 
+            element: detailWindow, 
+            app: 'job-detail' 
+        });
+        this.setupWindowControls(detailWindow);
+        this.makeWindowDraggable(detailWindow);
+        this.bringWindowToFront(detailWindow);
+    }
+
+    createJobDetailWindow(job) {
+        const window = document.createElement('div');
+        window.className = 'window';
+        window.id = `job-detail-${job.id}`;
+        window.style.left = '150px';
+        window.style.top = '100px';
+        window.style.width = '700px';
+        window.style.height = '600px';
+
+        window.innerHTML = `
+            <div class="window-header">
+                <div class="window-title">
+                    <i class="fas fa-briefcase"></i>
+                    <span>${job.title}</span>
+                </div>
+                <div class="window-controls">
+                    <div class="window-control minimize" data-action="minimize">−</div>
+                    <div class="window-control maximize" data-action="maximize">□</div>
+                    <div class="window-control close" data-action="close">×</div>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0;">
+                <div class="job-detail-content">
+                    <div class="job-detail-header">
+                        <div class="job-company-logo">
+                            ${job.company.split(' ').map(word => word[0]).join('').substring(0, 2).toUpperCase()}
+                        </div>
+                        <div class="job-detail-info">
+                            <h1>${job.title}</h1>
+                            <h2>${job.company}</h2>
+                            <div class="job-detail-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+                                <span><i class="fas fa-clock"></i> ${job.type}</span>
+                                <span><i class="fas fa-calendar"></i> ${job.posted}</span>
+                                ${job.remote ? '<span><i class="fas fa-home"></i> Remote</span>' : ''}
+                            </div>
+                        </div>
+                        <div class="job-detail-salary">
+                            <div class="salary-amount">${job.salary}</div>
+                            <div class="salary-label">pe lună</div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-detail-body">
+                        <div class="job-section">
+                            <h3><i class="fas fa-file-alt"></i> Descrierea Jobului</h3>
+                            <p>${job.description}</p>
+                            <p>Această poziție oferă oportunitatea de a lucra într-un mediu dinamic și inovator, 
+                            unde vei putea să-ți dezvolți abilitățile și să contribui la proiecte interesante.</p>
+                        </div>
+                        
+                        <div class="job-section">
+                            <h3><i class="fas fa-star"></i> Competențe Necesare</h3>
+                            <div class="skills-list">
+                                ${job.tags.map(tag => `<span class="skill-tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="job-section">
+                            <h3><i class="fas fa-gift"></i> Beneficii</h3>
+                            <ul class="benefits-list">
+                                ${job.benefits.map(benefit => `<li><i class="fas fa-check"></i> ${benefit}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="job-section">
+                            <h3><i class="fas fa-building"></i> Despre Companie</h3>
+                            <p>Compania noastră este lider în domeniu, cu o echipă de profesioniști dedicați 
+                            și un mediu de lucru colaborativ. Oferim oportunități de dezvoltare și creștere în carieră.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="job-detail-actions">
+                        <button class="job-btn primary large" onclick="jobOS.applyToJob(${job.id})">
+                            <i class="fas fa-paper-plane"></i> Aplică pentru acest job
+                        </button>
+                        <button class="job-btn secondary large" onclick="jobOS.saveJob(${job.id})">
+                            <i class="fas fa-heart"></i> Salvează
+                        </button>
+                        <button class="job-btn secondary large" onclick="jobOS.shareJob(${job.id})">
+                            <i class="fas fa-share"></i> Distribuie
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        return window;
+    }
+
+    shareJob(jobId) {
+        const job = this.jobData.find(j => j.id === jobId);
+        if (navigator.share) {
+            navigator.share({
+                title: job.title,
+                text: `Verifică acest job: ${job.title} la ${job.company}`,
+                url: window.location.href
+            });
+        } else {
+            // Fallback pentru browsere care nu suportă Web Share API
+            navigator.clipboard.writeText(`${job.title} la ${job.company} - ${window.location.href}`);
+            this.showNotification('Link copiat în clipboard!', 'success');
+        }
     }
 
     createCVBuilderContent() {
