@@ -6,46 +6,46 @@
 }
 
 :root {
-    /* Tropical Theme Colors */
-    --primary-coral: #FF6B6B;
-    --primary-mint: #4ECDC4;
-    --primary-lavender: #A8E6CF;
-    --primary-peach: #FFD93D;
-    --primary-ocean: #6C5CE7;
-    --primary-sunset: #FD79A8;
+    /* Bright Tropical Theme Colors */
+    --primary-coral: #FF8A95;
+    --primary-mint: #7FDBDA;
+    --primary-lavender: #C8F7C5;
+    --primary-peach: #FFE066;
+    --primary-ocean: #8C7AE6;
+    --primary-sunset: #FFA8C5;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
-    --gradient-secondary: linear-gradient(135deg, #A8E6CF 0%, #FFD93D 100%);
-    --gradient-accent: linear-gradient(135deg, #6C5CE7 0%, #FD79A8 100%);
-    --gradient-warm: linear-gradient(135deg, #FF7675 0%, #FDCB6E 100%);
-    --gradient-cool: linear-gradient(135deg, #74B9FF 0%, #0984E3 100%);
-    --gradient-sunset: linear-gradient(135deg, #FD79A8 0%, #FDCB6E 50%, #E17055 100%);
-    --gradient-ocean: linear-gradient(135deg, #00CEC9 0%, #6C5CE7 50%, #A29BFE 100%);
+    --gradient-primary: linear-gradient(135deg, #FF8A95 0%, #7FDBDA 100%);
+    --gradient-secondary: linear-gradient(135deg, #C8F7C5 0%, #FFE066 100%);
+    --gradient-accent: linear-gradient(135deg, #8C7AE6 0%, #FFA8C5 100%);
+    --gradient-warm: linear-gradient(135deg, #FFB3BA 0%, #FFDFBA 100%);
+    --gradient-cool: linear-gradient(135deg, #A8E6CF 0%, #88D8C0 100%);
+    --gradient-sunset: linear-gradient(135deg, #FFA8C5 0%, #FFE066 50%, #FF8A95 100%);
+    --gradient-ocean: linear-gradient(135deg, #7FDBDA 0%, #8C7AE6 50%, #C8A8FF 100%);
     
     /* Background Colors */
-    --bg-primary: #0D1117;
-    --bg-secondary: #161B22;
-    --bg-tertiary: #21262D;
-    --bg-glass: rgba(255, 255, 255, 0.1);
-    --bg-card: rgba(255, 255, 255, 0.05);
-    --bg-hover: rgba(255, 255, 255, 0.08);
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #F1F5F9;
+    --bg-tertiary: #E2E8F0;
+    --bg-glass: rgba(255, 255, 255, 0.7);
+    --bg-card: rgba(255, 255, 255, 0.8);
+    --bg-hover: rgba(255, 255, 255, 0.9);
     
     /* Text Colors */
-    --text-primary: #F0F6FC;
-    --text-secondary: #8B949E;
-    --text-accent: #FF6B6B;
-    --text-muted: #6E7681;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-accent: #FF8A95;
+    --text-muted: #94A3B8;
     --text-white: #FFFFFF;
     
     /* Shadows */
-    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
-    --shadow-colored: 0 10px 15px -3px rgba(255, 107, 107, 0.3), 0 4px 6px -4px rgba(255, 107, 107, 0.3);
-    --shadow-glow: 0 0 20px rgba(78, 205, 196, 0.3);
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.15);
+    --shadow-colored: 0 10px 15px -3px rgba(255, 138, 149, 0.25), 0 4px 6px -4px rgba(255, 138, 149, 0.25);
+    --shadow-glow: 0 0 20px rgba(127, 219, 218, 0.4);
     
     /* Border Radius */
     --radius-xs: 4px;
@@ -85,11 +85,11 @@ body {
     color: var(--text-primary);
     background: var(--bg-primary);
     background-image: 
-        radial-gradient(circle at 20% 30%, rgba(255, 107, 107, 0.15) 0%, transparent 70%),
-        radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.12) 0%, transparent 70%),
-        radial-gradient(circle at 60% 80%, rgba(168, 230, 207, 0.1) 0%, transparent 70%),
-        radial-gradient(circle at 90% 70%, rgba(108, 92, 231, 0.08) 0%, transparent 70%),
-        radial-gradient(circle at 30% 90%, rgba(253, 121, 168, 0.1) 0%, transparent 70%);
+        radial-gradient(circle at 20% 30%, rgba(255, 138, 149, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(127, 219, 218, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 60% 80%, rgba(200, 247, 197, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 90% 70%, rgba(140, 122, 230, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 30% 90%, rgba(255, 168, 197, 0.15) 0%, transparent 60%);
     overflow-x: hidden;
     min-height: 100vh;
     font-size: var(--font-size-base);
@@ -109,11 +109,11 @@ body {
     transform: translateX(-50%);
     z-index: 1000;
     backdrop-filter: blur(20px) saturate(180%);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: var(--radius-2xl);
     padding: var(--space-sm) var(--space-lg);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
     width: calc(100% - var(--space-3xl));
     max-width: 1000px;
 }
@@ -158,7 +158,7 @@ body {
     align-items: center;
     background: var(--bg-card);
     backdrop-filter: blur(20px);
-    border: 2px solid rgba(255, 107, 107, 0.2);
+    border: 2px solid rgba(255, 138, 149, 0.3);
     border-radius: var(--radius-full);
     padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-md);
     box-shadow: var(--shadow-sm);
@@ -225,7 +225,7 @@ body {
     position: relative;
     background: var(--bg-card);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 107, 107, 0.15);
+    border: 1px solid rgba(255, 138, 149, 0.2);
     border-radius: var(--radius-full);
     width: 40px;
     height: 40px;
@@ -268,7 +268,7 @@ body {
     gap: var(--space-xs);
     background: var(--bg-card);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(255, 138, 149, 0.2);
     border-radius: var(--radius-full);
     padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-xs);
     cursor: pointer;
@@ -278,7 +278,7 @@ body {
 
 .nav-user-btn:hover {
     background: var(--bg-hover);
-    border-color: var(--primary-violet);
+    border-color: var(--primary-coral);
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
 }
@@ -294,7 +294,7 @@ body {
 .nav-search-toggle {
     display: flex;
     background: var(--bg-card);
-    border: 1px solid rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(255, 138, 149, 0.2);
     border-radius: var(--radius-full);
     width: 40px;
     height: 40px;
@@ -307,8 +307,8 @@ body {
 
 .nav-search-toggle:hover {
     background: var(--bg-hover);
-    border-color: var(--primary-violet);
-    color: var(--primary-violet);
+    border-color: var(--primary-coral);
+    color: var(--primary-coral);
     transform: translateY(-1px);
 }
 
