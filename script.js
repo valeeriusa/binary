@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initJobFilters();
     initScrollEffects();
+    initUserActions();
 });
 
 // Navigation functionality
@@ -81,10 +82,22 @@ function initSearch() {
     const locationInput = document.querySelector('.location-input');
     const searchBtn = document.querySelector('.search-btn');
     const filterTags = document.querySelectorAll('.filter-tag');
+    
+    // Navigation search
+    const navSearchInput = document.querySelector('.nav-search-input');
+    const navSearchBtn = document.querySelector('.nav-search-btn');
 
     // Search button click
     if (searchBtn) {
         searchBtn.addEventListener('click', performSearch);
+    }
+
+    // Navigation search button click
+    if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+            const searchTerm = navSearchInput?.value || '';
+            performNavSearch(searchTerm);
+        });
     }
 
     // Enter key search
@@ -100,6 +113,16 @@ function initSearch() {
         locationInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 performSearch();
+            }
+        });
+    }
+
+    // Navigation search enter key
+    if (navSearchInput) {
+        navSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const searchTerm = navSearchInput.value || '';
+                performNavSearch(searchTerm);
             }
         });
     }
@@ -134,6 +157,29 @@ function initSearch() {
                 const jobsSection = document.getElementById('jobs');
                 if (jobsSection) {
                     jobsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 1000);
+        }
+    }
+
+    function performNavSearch(searchTerm) {
+        console.log('Navigation search for:', searchTerm);
+        
+        // Add loading animation to nav search
+        if (navSearchBtn) {
+            navSearchBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            
+            setTimeout(() => {
+                navSearchBtn.innerHTML = '<i class="fas fa-arrow-right"></i>';
+                // Scroll to jobs section
+                const jobsSection = document.getElementById('jobs');
+                if (jobsSection) {
+                    jobsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Optionally sync with main search
+                if (searchInput) {
+                    searchInput.value = searchTerm;
                 }
             }, 1000);
         }
@@ -429,6 +475,187 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// User actions functionality
+function initUserActions() {
+    const notificationBtn = document.querySelector('.nav-notifications .nav-icon-btn');
+    const messagesBtn = document.querySelector('.nav-messages .nav-icon-btn');
+    const userBtn = document.querySelector('.nav-user-btn');
+
+    // Notifications dropdown
+    if (notificationBtn) {
+        notificationBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showNotificationsDropdown();
+        });
+    }
+
+    // Messages dropdown
+    if (messagesBtn) {
+        messagesBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showMessagesDropdown();
+        });
+    }
+
+    // User dropdown
+    if (userBtn) {
+        userBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showUserDropdown();
+        });
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        closeAllDropdowns();
+    });
+}
+
+function showNotificationsDropdown() {
+    closeAllDropdowns();
+    
+    const dropdown = createDropdown([
+        { icon: 'fas fa-briefcase', title: 'Job Application Update', desc: 'Google responded to your application', time: '2 min ago', unread: true },
+        { icon: 'fas fa-heart', title: 'New Job Match', desc: 'Frontend Developer at Apple', time: '1 hour ago', unread: true },
+        { icon: 'fas fa-user-plus', title: 'Profile View', desc: 'Tesla recruiter viewed your profile', time: '3 hours ago', unread: false }
+    ], 'notifications');
+    
+    const notificationBtn = document.querySelector('.nav-notifications');
+    positionDropdown(dropdown, notificationBtn);
+}
+
+function showMessagesDropdown() {
+    closeAllDropdowns();
+    
+    const dropdown = createDropdown([
+        { avatar: 'https://via.placeholder.com/40x40/667eea/ffffff?text=HR', title: 'Sarah from Google', desc: 'Thanks for your application...', time: '5 min ago', unread: true },
+        { avatar: 'https://via.placeholder.com/40x40/764ba2/ffffff?text=R', title: 'Recruiter Alex', desc: 'I have an exciting opportunity...', time: '1 day ago', unread: false }
+    ], 'messages');
+    
+    const messagesBtn = document.querySelector('.nav-messages');
+    positionDropdown(dropdown, messagesBtn);
+}
+
+function showUserDropdown() {
+    closeAllDropdowns();
+    
+    const dropdown = createDropdown([
+        { icon: 'fas fa-user', title: 'Profile', action: () => console.log('Profile clicked') },
+        { icon: 'fas fa-cog', title: 'Settings', action: () => console.log('Settings clicked') },
+        { icon: 'fas fa-bookmark', title: 'Saved Jobs', action: () => console.log('Saved Jobs clicked') },
+        { icon: 'fas fa-chart-line', title: 'Dashboard', action: () => console.log('Dashboard clicked') },
+        { divider: true },
+        { icon: 'fas fa-sign-out-alt', title: 'Sign Out', action: () => console.log('Sign Out clicked') }
+    ], 'user');
+    
+    const userBtn = document.querySelector('.nav-user');
+    positionDropdown(dropdown, userBtn);
+}
+
+function createDropdown(items, type) {
+    const dropdown = document.createElement('div');
+    dropdown.className = `nav-dropdown nav-dropdown-${type}`;
+    dropdown.style.cssText = `
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 16px;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+        min-width: 320px;
+        max-width: 400px;
+        z-index: 2000;
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+        transition: all 0.3s ease;
+        margin-top: 8px;
+    `;
+
+    let content = '';
+    
+    if (type === 'notifications' || type === 'messages') {
+        content += `<div style="padding: 16px 20px; border-bottom: 1px solid rgba(0,0,0,0.1); font-weight: 600; color: #1d1d1f;">${type === 'notifications' ? 'Notifications' : 'Messages'}</div>`;
+        
+        items.forEach(item => {
+            content += `
+                <div style="padding: 12px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(0,0,0,0.05)'" onmouseout="this.style.background='transparent'">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        ${item.avatar ? 
+                            `<img src="${item.avatar}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">` :
+                            `<div style="width: 32px; height: 32px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px;"><i class="${item.icon}"></i></div>`
+                        }
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; font-size: 14px; margin-bottom: 2px;">${item.title}</div>
+                            <div style="color: #6e6e73; font-size: 13px; line-height: 1.3;">${item.desc}</div>
+                            <div style="color: #8e8e93; font-size: 12px; margin-top: 4px;">${item.time}</div>
+                        </div>
+                        ${item.unread ? '<div style="width: 8px; height: 8px; background: #ff3b30; border-radius: 50%; margin-left: 8px;"></div>' : ''}
+                    </div>
+                </div>
+            `;
+        });
+        
+        content += `<div style="padding: 12px 20px; text-align: center;"><a href="#" style="color: #007aff; text-decoration: none; font-weight: 500; font-size: 14px;">View All</a></div>`;
+    } else {
+        items.forEach(item => {
+            if (item.divider) {
+                content += '<div style="height: 1px; background: rgba(0,0,0,0.1); margin: 8px 0;"></div>';
+            } else {
+                content += `
+                    <div style="padding: 12px 20px; cursor: pointer; transition: background 0.2s ease; display: flex; align-items: center; gap: 12px;" 
+                         onmouseover="this.style.background='rgba(0,0,0,0.05)'" 
+                         onmouseout="this.style.background='transparent'"
+                         onclick="if(this.clickHandler) this.clickHandler()">
+                        <i class="${item.icon}" style="color: #6e6e73; width: 16px;"></i>
+                        <span style="color: #1d1d1f; font-weight: 500; font-size: 14px;">${item.title}</span>
+                    </div>
+                `;
+            }
+        });
+    }
+
+    dropdown.innerHTML = content;
+    
+    // Add click handlers for user menu items
+    if (type === 'user') {
+        const menuItems = dropdown.querySelectorAll('[onclick]');
+        menuItems.forEach((item, index) => {
+            const actionIndex = items.findIndex(menuItem => !menuItem.divider);
+            if (items[index] && items[index].action) {
+                item.clickHandler = items[index].action;
+            }
+        });
+    }
+
+    return dropdown;
+}
+
+function positionDropdown(dropdown, anchor) {
+    anchor.style.position = 'relative';
+    anchor.appendChild(dropdown);
+    
+    // Animate in
+    setTimeout(() => {
+        dropdown.style.opacity = '1';
+        dropdown.style.transform = 'translateY(0) scale(1)';
+    }, 10);
+}
+
+function closeAllDropdowns() {
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+        dropdown.style.opacity = '0';
+        dropdown.style.transform = 'translateY(-10px) scale(0.95)';
+        setTimeout(() => {
+            if (dropdown.parentNode) {
+                dropdown.parentNode.removeChild(dropdown);
+            }
+        }, 300);
+    });
+}
 
 // Initialize particle effect
 // createParticleEffect();

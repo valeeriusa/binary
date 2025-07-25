@@ -68,29 +68,32 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    backdrop-filter: blur(20px);
-    background: var(--bg-glass);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 12px 0;
+    backdrop-filter: blur(30px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 16px 0 0 0;
+    border: none;
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
-    justify-content: space-between;
+    gap: 32px;
+    height: 70px;
 }
 
 .nav-brand {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 24px;
-    font-weight: 700;
+    gap: 12px;
+    font-size: 26px;
+    font-weight: 800;
     color: var(--text-primary);
     text-decoration: none;
+    justify-self: start;
 }
 
 .nav-brand i {
@@ -98,34 +101,165 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-size: 28px;
 }
 
-.nav-menu {
+/* Central Search Box */
+.nav-search {
+    justify-self: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.nav-search-box {
     display: flex;
-    gap: 32px;
-    list-style: none;
-}
-
-.nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: var(--radius-small);
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    padding: 4px 6px 4px 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    position: relative;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-search-box:focus-within {
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-search-icon {
+    color: var(--text-secondary);
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+.nav-search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.5);
+    flex: 1;
+    padding: 12px 8px;
+    font-weight: 500;
 }
 
+.nav-search-input::placeholder {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.nav-search-btn {
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 8px;
+}
+
+.nav-search-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+}
+
+/* User Actions Section */
 .nav-actions {
     display: flex;
-    gap: 12px;
+    gap: 16px;
     align-items: center;
+    justify-self: end;
+}
+
+.nav-icon-btn {
+    position: relative;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.nav-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--primary-red);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.nav-user-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    padding: 6px 16px 6px 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.nav-user-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Curved Bottom Border */
+.navbar-curve {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.navbar-curve svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
 .btn-primary, .btn-secondary, .btn-outline {
@@ -744,16 +878,63 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none;
+    .nav-container {
+        grid-template-columns: auto 1fr auto;
+        gap: 16px;
+        padding: 0 20px;
+        height: 60px;
+    }
+    
+    .nav-brand {
+        font-size: 20px;
+    }
+    
+    .nav-brand i {
+        font-size: 22px;
+    }
+    
+    .nav-search {
+        max-width: none;
+    }
+    
+    .nav-search-box {
+        padding: 2px 4px 2px 16px;
+    }
+    
+    .nav-search-input {
+        font-size: 14px;
+        padding: 10px 6px;
+    }
+    
+    .nav-search-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .nav-actions {
+        gap: 12px;
+    }
+    
+    .nav-icon-btn {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .nav-user-btn {
+        padding: 4px 12px 4px 4px;
+    }
+    
+    .user-avatar {
+        width: 28px;
+        height: 28px;
     }
     
     .nav-toggle {
-        display: flex;
+        display: none; /* Hide for now, can be enabled if needed */
     }
     
     .hero {
-        padding: 100px 24px 60px;
+        padding: 120px 24px 60px;
     }
     
     .hero-title {

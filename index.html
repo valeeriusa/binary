@@ -12,26 +12,65 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
+            <!-- Logo Section -->
             <div class="nav-brand">
                 <i class="fas fa-sparkles"></i>
-                <span>AuraJobs</span>
+                <span>AuraJobs.ro</span>
             </div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#jobs" class="nav-link">Jobs</a>
-                <a href="#companies" class="nav-link">Companies</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
+            
+            <!-- Central Search Box -->
+            <div class="nav-search">
+                <div class="nav-search-box">
+                    <i class="fas fa-search nav-search-icon"></i>
+                    <input type="text" placeholder="Caută joburi, companii..." class="nav-search-input">
+                    <button class="nav-search-btn">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
+            
+            <!-- User Actions Section -->
             <div class="nav-actions">
-                <button class="btn-secondary">Sign In</button>
-                <button class="btn-primary">Post a Job</button>
+                <div class="nav-notifications">
+                    <button class="nav-icon-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+                <div class="nav-messages">
+                    <button class="nav-icon-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span class="notification-badge">2</span>
+                    </button>
+                </div>
+                <div class="nav-user">
+                    <button class="nav-user-btn">
+                        <img src="https://via.placeholder.com/40x40/667eea/ffffff?text=U" alt="User" class="user-avatar">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
             </div>
+            
+            <!-- Mobile Menu Toggle -->
             <div class="nav-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
+        </div>
+        
+        <!-- Curved Bottom Border -->
+        <div class="navbar-curve">
+            <svg viewBox="0 0 1200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0H1200V20C1200 20 900 40 600 20C300 0 0 20 0 20V0Z" fill="url(#curveGradient)"/>
+                <defs>
+                    <linearGradient id="curveGradient" x1="0" y1="0" x2="1200" y2="0">
+                        <stop offset="0%" stop-color="rgba(255,255,255,0.1)"/>
+                        <stop offset="50%" stop-color="rgba(255,255,255,0.3)"/>
+                        <stop offset="100%" stop-color="rgba(255,255,255,0.1)"/>
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>
     </nav>
 
