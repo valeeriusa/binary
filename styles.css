@@ -6,22 +6,22 @@
 }
 
 :root {
-    /* Ultra Modern Gradient Colors */
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #00c9ff 50%, #92fe9d 75%, #a8edea 100%);
-    --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-blue: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
-    --gradient-green: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-    --gradient-accent: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    /* Ultra Modern Dark Neon Theme */
+    --gradient-primary: linear-gradient(135deg, #0f0f23 0%, #1a0033 25%, #2d1b69 50%, #11998e 75%, #38ef7d 100%);
+    --gradient-purple: linear-gradient(135deg, #8360c3 0%, #2ebf91 100%);
+    --gradient-blue: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-green: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    --gradient-accent: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
     
-    /* Glass Effect Colors */
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    /* Glass Effect Colors - Dark Neon */
+    --glass-bg: rgba(0, 0, 0, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
     
-    /* Text Colors */
-    --text-primary: #1a1a1a;
-    --text-secondary: #666666;
-    --text-light: #999999;
+    /* Text Colors - Dark Theme */
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8b8;
+    --text-light: #888888;
     --text-white: #ffffff;
     
     /* Modern Shadows */
@@ -89,39 +89,53 @@ body {
 }
 
 .orb-1 {
-    width: 300px;
-    height: 300px;
-    background: var(--gradient-purple);
-    top: 10%;
-    left: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #8360c3 0%, #2ebf91 70%, transparent 100%);
+    top: 5%;
+    left: 5%;
     animation-delay: -5s;
+    filter: blur(60px);
 }
 
 .orb-2 {
-    width: 400px;
-    height: 400px;
-    background: var(--gradient-blue);
-    top: 50%;
-    right: 10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #667eea 0%, #764ba2 70%, transparent 100%);
+    top: 40%;
+    right: 5%;
     animation-delay: -10s;
+    filter: blur(80px);
 }
 
 .orb-3 {
-    width: 200px;
-    height: 200px;
-    background: var(--gradient-green);
-    bottom: 20%;
-    left: 20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #11998e 0%, #38ef7d 70%, transparent 100%);
+    bottom: 25%;
+    left: 15%;
     animation-delay: -15s;
+    filter: blur(50px);
 }
 
 .orb-4 {
-    width: 350px;
-    height: 350px;
-    background: var(--gradient-accent);
-    bottom: 10%;
-    right: 30%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, #fc466b 0%, #3f5efb 70%, transparent 100%);
+    bottom: 5%;
+    right: 25%;
     animation-delay: -20s;
+    filter: blur(70px);
+}
+
+.orb-5 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #ff9a9e 0%, #fecfef 70%, transparent 100%);
+    top: 70%;
+    left: 50%;
+    animation-delay: -25s;
+    filter: blur(40px);
 }
 
 @keyframes float {
@@ -576,9 +590,10 @@ body {
 }
 
 .job-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-strong);
-    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4), 0 0 40px rgba(131, 96, 195, 0.3);
+    border-color: rgba(131, 96, 195, 0.5);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .job-header {
@@ -605,12 +620,12 @@ body {
     font-size: var(--font-size-lg);
 }
 
-.logo-1 { background: var(--gradient-purple); }
-.logo-2 { background: var(--gradient-blue); }
-.logo-3 { background: var(--gradient-green); }
-.logo-4 { background: var(--gradient-accent); }
-.logo-5 { background: var(--gradient-purple); }
-.logo-6 { background: var(--gradient-blue); }
+.logo-1 { background: var(--gradient-purple); box-shadow: 0 0 20px rgba(131, 96, 195, 0.5); }
+.logo-2 { background: var(--gradient-blue); box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+.logo-3 { background: var(--gradient-green); box-shadow: 0 0 20px rgba(17, 153, 142, 0.5); }
+.logo-4 { background: var(--gradient-accent); box-shadow: 0 0 20px rgba(252, 70, 107, 0.5); }
+.logo-5 { background: var(--gradient-purple); box-shadow: 0 0 20px rgba(131, 96, 195, 0.5); }
+.logo-6 { background: var(--gradient-blue); box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
 
 .job-bookmark {
     width: 35px;
@@ -671,13 +686,13 @@ body {
     background: var(--glass-bg);
 }
 
-.tag-tech { color: #667eea; border-color: rgba(102, 126, 234, 0.3); }
-.tag-design { color: #00c9ff; border-color: rgba(0, 201, 255, 0.3); }
-.tag-marketing { color: #92fe9d; border-color: rgba(146, 254, 157, 0.3); }
-.tag-data { color: #ff9a9e; border-color: rgba(255, 154, 158, 0.3); }
-.tag-devops { color: #a8edea; border-color: rgba(168, 237, 234, 0.3); }
-.tag-product { color: #fed6e3; border-color: rgba(254, 214, 227, 0.3); }
-.tag-level { background: var(--gradient-purple); color: white; border: none; }
+.tag-tech { color: #8360c3; border-color: rgba(131, 96, 195, 0.4); background: rgba(131, 96, 195, 0.1); }
+.tag-design { color: #667eea; border-color: rgba(102, 126, 234, 0.4); background: rgba(102, 126, 234, 0.1); }
+.tag-marketing { color: #11998e; border-color: rgba(17, 153, 142, 0.4); background: rgba(17, 153, 142, 0.1); }
+.tag-data { color: #fc466b; border-color: rgba(252, 70, 107, 0.4); background: rgba(252, 70, 107, 0.1); }
+.tag-devops { color: #38ef7d; border-color: rgba(56, 239, 125, 0.4); background: rgba(56, 239, 125, 0.1); }
+.tag-product { color: #3f5efb; border-color: rgba(63, 94, 251, 0.4); background: rgba(63, 94, 251, 0.1); }
+.tag-level { background: var(--gradient-accent); color: white; border: none; box-shadow: 0 0 15px rgba(252, 70, 107, 0.3); }
 
 .job-footer {
     display: flex;
