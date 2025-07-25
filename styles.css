@@ -6,53 +6,63 @@
 }
 
 :root {
-    /* macOS Colors */
-    --primary-blue: #007AFF;
-    --primary-purple: #5856D6;
-    --primary-pink: #FF2D92;
-    --primary-orange: #FF9500;
-    --primary-green: #30D158;
-    --primary-red: #FF3B30;
+    /* Dark Theme Colors */
+    --primary-accent: #00D4AA;
+    --primary-secondary: #FF6B35;
+    --primary-tertiary: #7B68EE;
+    --primary-highlight: #FFD23F;
+    --primary-danger: #FF4757;
+    --primary-success: #2ED573;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    --gradient-secondary: linear-gradient(135deg, #00D4AA 0%, #7B68EE 100%);
+    --gradient-accent: linear-gradient(135deg, #FF6B35 0%, #FFD23F 100%);
+    --gradient-dark: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
     
     /* Background Colors */
-    --bg-primary: rgba(255, 255, 255, 0.85);
-    --bg-secondary: rgba(248, 249, 250, 0.9);
-    --bg-glass: rgba(255, 255, 255, 0.25);
-    --bg-dark: rgba(0, 0, 0, 0.8);
+    --bg-primary: #0F0F23;
+    --bg-secondary: #1A1A2E;
+    --bg-tertiary: #16213E;
+    --bg-glass: rgba(255, 255, 255, 0.1);
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --bg-hover: rgba(255, 255, 255, 0.08);
     
     /* Text Colors */
-    --text-primary: #1d1d1f;
-    --text-secondary: #6e6e73;
-    --text-accent: #007AFF;
-    --text-white: #ffffff;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B8B8D1;
+    --text-accent: #00D4AA;
+    --text-muted: #6C7293;
+    --text-dark: #2C3E50;
     
     /* Shadows */
-    --shadow-light: 0 4px 16px rgba(0, 0, 0, 0.1);
-    --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.15);
-    --shadow-heavy: 0 16px 64px rgba(0, 0, 0, 0.2);
+    --shadow-light: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-heavy: 0 16px 64px rgba(0, 0, 0, 0.5);
+    --shadow-colored: 0 8px 32px rgba(0, 212, 170, 0.3);
     
     /* Border Radius */
-    --radius-small: 8px;
-    --radius-medium: 12px;
-    --radius-large: 20px;
-    --radius-xl: 24px;
+    --radius-small: 12px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+    --radius-xl: 32px;
     
     /* Typography */
-    --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--text-primary);
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: var(--bg-primary);
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0, 212, 170, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(123, 104, 238, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .container {
@@ -69,9 +79,9 @@ body {
     right: 0;
     z-index: 1000;
     backdrop-filter: blur(30px);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 15, 35, 0.8);
+    border-bottom: 1px solid rgba(0, 212, 170, 0.2);
     padding: 16px 0 0 0;
-    border: none;
 }
 
 .nav-container {
@@ -97,7 +107,7 @@ body {
 }
 
 .nav-brand i {
-    background: var(--gradient-primary);
+    background: var(--gradient-secondary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -114,18 +124,18 @@ body {
 .nav-search-box {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--bg-card);
     backdrop-filter: blur(20px);
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(0, 212, 170, 0.3);
     border-radius: 25px;
     padding: 4px 6px 4px 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-light);
     transition: all 0.3s ease;
 }
 
 .nav-search-box:focus-within {
-    border-color: rgba(102, 126, 234, 0.5);
-    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+    border-color: var(--primary-accent);
+    box-shadow: var(--shadow-colored);
     transform: translateY(-2px);
 }
 
@@ -152,7 +162,7 @@ body {
 }
 
 .nav-search-btn {
-    background: var(--gradient-primary);
+    background: var(--gradient-secondary);
     border: none;
     border-radius: 20px;
     color: white;
@@ -168,7 +178,7 @@ body {
 
 .nav-search-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+    box-shadow: var(--shadow-colored);
 }
 
 /* User Actions Section */
@@ -181,9 +191,9 @@ body {
 
 .nav-icon-btn {
     position: relative;
-    background: rgba(255, 255, 255, 0.7);
+    background: var(--bg-card);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 212, 170, 0.2);
     border-radius: 50%;
     width: 44px;
     height: 44px;
@@ -196,16 +206,17 @@ body {
 }
 
 .nav-icon-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--bg-hover);
+    border-color: var(--primary-accent);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-colored);
 }
 
 .notification-badge {
     position: absolute;
     top: -4px;
     right: -4px;
-    background: var(--primary-red);
+    background: var(--primary-secondary);
     color: white;
     border-radius: 50%;
     width: 20px;
@@ -215,16 +226,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid white;
+    border: 2px solid var(--bg-primary);
 }
 
 .nav-user-btn {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.7);
+    background: var(--bg-card);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 212, 170, 0.2);
     border-radius: 25px;
     padding: 6px 16px 6px 6px;
     cursor: pointer;
@@ -233,9 +244,10 @@ body {
 }
 
 .nav-user-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--bg-hover);
+    border-color: var(--primary-accent);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-colored);
 }
 
 .user-avatar {
@@ -336,29 +348,29 @@ body {
 }
 
 .orb-1 {
-    width: 300px;
-    height: 300px;
-    background: var(--gradient-primary);
-    top: 20%;
-    left: 10%;
+    width: 400px;
+    height: 400px;
+    background: var(--gradient-secondary);
+    top: 15%;
+    left: 5%;
     animation-delay: 0s;
 }
 
 .orb-2 {
-    width: 400px;
-    height: 400px;
-    background: var(--gradient-secondary);
-    top: 50%;
-    right: 10%;
+    width: 350px;
+    height: 350px;
+    background: var(--gradient-accent);
+    top: 40%;
+    right: 5%;
     animation-delay: 2s;
 }
 
 .orb-3 {
-    width: 250px;
-    height: 250px;
-    background: var(--gradient-accent);
-    bottom: 20%;
-    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: var(--gradient-dark);
+    bottom: 15%;
+    left: 60%;
     animation-delay: 4s;
 }
 
@@ -382,7 +394,7 @@ body {
 }
 
 .gradient-text {
-    background: var(--gradient-primary);
+    background: var(--gradient-secondary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -402,12 +414,12 @@ body {
 .search-box {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--bg-card);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(0, 212, 170, 0.3);
     border-radius: var(--radius-large);
     padding: 8px;
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-medium);
     margin: 0 auto;
     max-width: 600px;
 }
@@ -439,7 +451,7 @@ body {
 }
 
 .search-btn {
-    background: var(--gradient-primary);
+    background: var(--gradient-secondary);
     border: none;
     border-radius: var(--radius-medium);
     color: white;
@@ -470,8 +482,8 @@ body {
 }
 
 .filter-tag {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 212, 170, 0.3);
     border-radius: var(--radius-small);
     padding: 8px 16px;
     font-size: 14px;
@@ -482,8 +494,10 @@ body {
 }
 
 .filter-tag:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--bg-hover);
+    border-color: var(--primary-accent);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
 }
 
 .hero-stats {
