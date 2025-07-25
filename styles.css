@@ -245,23 +245,7 @@ body {
     object-fit: cover;
 }
 
-/* Curved Bottom Border */
-.navbar-curve {
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    right: 0;
-    height: 60px;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: -1;
-}
 
-.navbar-curve svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 2px 12px rgba(102, 126, 234, 0.3));
-}
 
 .btn-primary, .btn-secondary, .btn-outline {
     padding: 10px 20px;
