@@ -1,40 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binary OS - Desktop Environment</title>
+    <title>JobOS - Sistemul de Operare pentru Carieră</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Desktop Background -->
     <div class="desktop">
-        <!-- Desktop Icons -->
+        <!-- Desktop Icons for Job Categories -->
         <div class="desktop-icons">
-            <div class="desktop-icon" data-app="terminal">
-                <i class="fas fa-terminal"></i>
-                <span>Terminal</span>
+            <div class="desktop-icon" data-app="job-search">
+                <i class="fas fa-search"></i>
+                <span>Căutare Job</span>
             </div>
-            <div class="desktop-icon" data-app="file-manager">
-                <i class="fas fa-folder"></i>
-                <span>Files</span>
+            <div class="desktop-icon" data-app="my-jobs">
+                <i class="fas fa-briefcase"></i>
+                <span>Job-urile Mele</span>
             </div>
-            <div class="desktop-icon" data-app="text-editor">
-                <i class="fas fa-edit"></i>
-                <span>Editor</span>
+            <div class="desktop-icon" data-app="cv-builder">
+                <i class="fas fa-file-alt"></i>
+                <span>CV Builder</span>
             </div>
-            <div class="desktop-icon" data-app="calculator">
+            <div class="desktop-icon" data-app="companies">
+                <i class="fas fa-building"></i>
+                <span>Companii</span>
+            </div>
+            <div class="desktop-icon" data-app="interviews">
+                <i class="fas fa-calendar-check"></i>
+                <span>Interviuri</span>
+            </div>
+            <div class="desktop-icon" data-app="profile">
+                <i class="fas fa-user"></i>
+                <span>Profilul Meu</span>
+            </div>
+            <div class="desktop-icon" data-app="notifications">
+                <i class="fas fa-bell"></i>
+                <span>Notificări</span>
+            </div>
+            <div class="desktop-icon" data-app="salary-calculator">
                 <i class="fas fa-calculator"></i>
-                <span>Calculator</span>
+                <span>Calculator Salariu</span>
             </div>
-            <div class="desktop-icon" data-app="browser">
-                <i class="fas fa-globe"></i>
-                <span>Browser</span>
-            </div>
-            <div class="desktop-icon" data-app="settings">
-                <i class="fas fa-cog"></i>
-                <span>Settings</span>
+            <div class="desktop-icon" data-app="skills-test">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Test Competențe</span>
             </div>
         </div>
 
@@ -44,19 +56,23 @@
         <!-- Taskbar -->
         <div class="taskbar">
             <div class="start-menu-button">
-                <i class="fab fa-binary"></i>
-                <span>Binary</span>
+                <i class="fas fa-briefcase"></i>
+                <span>JobOS</span>
             </div>
             <div class="taskbar-apps"></div>
             <div class="system-tray">
+                <div class="job-stats">
+                    <span class="new-jobs">12 joburi noi</span>
+                    <span class="applications">5 aplicări</span>
+                </div>
                 <div class="system-time">
                     <span class="time"></span>
                     <span class="date"></span>
                 </div>
                 <div class="system-icons">
-                    <i class="fas fa-wifi"></i>
-                    <i class="fas fa-volume-up"></i>
-                    <i class="fas fa-battery-three-quarters"></i>
+                    <i class="fas fa-bell job-notifications" title="Notificări job"></i>
+                    <i class="fas fa-envelope messages" title="Mesaje"></i>
+                    <i class="fas fa-user-circle profile" title="Profilul meu"></i>
                 </div>
             </div>
         </div>
@@ -69,51 +85,77 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="user-details">
-                        <span class="username">User</span>
-                        <span class="user-status">Online</span>
+                        <span class="username">Ion Popescu</span>
+                        <span class="user-status">Caută job activ</span>
                     </div>
                 </div>
             </div>
             <div class="start-menu-apps">
                 <div class="app-category">
-                    <h3>Applications</h3>
+                    <h3>Căutare & Aplicare</h3>
                     <div class="app-grid">
-                        <div class="start-app" data-app="terminal">
-                            <i class="fas fa-terminal"></i>
-                            <span>Terminal</span>
+                        <div class="start-app" data-app="job-search">
+                            <i class="fas fa-search"></i>
+                            <span>Căutare Job</span>
                         </div>
-                        <div class="start-app" data-app="file-manager">
-                            <i class="fas fa-folder"></i>
-                            <span>File Manager</span>
+                        <div class="start-app" data-app="my-jobs">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Job-urile Mele</span>
                         </div>
-                        <div class="start-app" data-app="text-editor">
-                            <i class="fas fa-edit"></i>
-                            <span>Text Editor</span>
+                        <div class="start-app" data-app="companies">
+                            <i class="fas fa-building"></i>
+                            <span>Companii</span>
                         </div>
-                        <div class="start-app" data-app="calculator">
-                            <i class="fas fa-calculator"></i>
-                            <span>Calculator</span>
-                        </div>
-                        <div class="start-app" data-app="browser">
-                            <i class="fas fa-globe"></i>
-                            <span>Web Browser</span>
-                        </div>
-                        <div class="start-app" data-app="settings">
-                            <i class="fas fa-cog"></i>
-                            <span>Settings</span>
+                        <div class="start-app" data-app="saved-jobs">
+                            <i class="fas fa-heart"></i>
+                            <span>Job-uri Salvate</span>
                         </div>
                     </div>
                 </div>
                 <div class="app-category">
-                    <h3>System</h3>
+                    <h3>Profil & CV</h3>
                     <div class="app-grid">
-                        <div class="start-app" data-action="shutdown">
-                            <i class="fas fa-power-off"></i>
-                            <span>Shutdown</span>
+                        <div class="start-app" data-app="profile">
+                            <i class="fas fa-user"></i>
+                            <span>Profilul Meu</span>
                         </div>
-                        <div class="start-app" data-action="restart">
-                            <i class="fas fa-redo"></i>
-                            <span>Restart</span>
+                        <div class="start-app" data-app="cv-builder">
+                            <i class="fas fa-file-alt"></i>
+                            <span>CV Builder</span>
+                        </div>
+                        <div class="start-app" data-app="skills-test">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Test Competențe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-category">
+                    <h3>Managementul Carierei</h3>
+                    <div class="app-grid">
+                        <div class="start-app" data-app="interviews">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Interviuri</span>
+                        </div>
+                        <div class="start-app" data-app="salary-calculator">
+                            <i class="fas fa-calculator"></i>
+                            <span>Calculator Salariu</span>
+                        </div>
+                        <div class="start-app" data-app="career-path">
+                            <i class="fas fa-route"></i>
+                            <span>Traseul Carierei</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-category">
+                    <h3>Sistem</h3>
+                    <div class="app-grid">
+                        <div class="start-app" data-app="notifications">
+                            <i class="fas fa-bell"></i>
+                            <span>Notificări</span>
+                        </div>
+                        <div class="start-app" data-app="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Setări</span>
                         </div>
                         <div class="start-app" data-action="logout">
                             <i class="fas fa-sign-out-alt"></i>
@@ -127,10 +169,34 @@
         <!-- Boot Screen -->
         <div class="boot-screen">
             <div class="boot-logo">
-                <i class="fab fa-binary"></i>
-                <h1>Binary OS</h1>
+                <i class="fas fa-briefcase"></i>
+                <h1>JobOS</h1>
                 <div class="loading-spinner"></div>
-                <p>Loading desktop environment...</p>
+                <p>Inițializare sistem de management carieră...</p>
+                <div class="boot-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text">Loading job opportunities...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Access Panel -->
+        <div class="quick-access-panel">
+            <div class="quick-stats">
+                <div class="stat-item">
+                    <i class="fas fa-eye"></i>
+                    <span>Vizualizări profil: 247</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Aplicări trimise: 15</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-phone"></i>
+                    <span>Interviuri programate: 3</span>
+                </div>
             </div>
         </div>
     </div>
