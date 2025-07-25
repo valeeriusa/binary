@@ -114,18 +114,21 @@
             </div>
         </div>
         
-        <!-- Hero Wave Transition -->
-        <div class="hero-wave">
-            <svg viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Hero background continuation -->
-                <path d="M0,0 L1200,0 L1200,100 C900,200 300,200 0,100 Z" fill="url(#heroWaveGradient)"/>
-                <!-- Wave transition -->
-                <path d="M0,100 C300,200 900,200 1200,100 L1200,200 L0,200 Z" fill="rgba(255, 255, 255, 0.5)"/>
+        <!-- Hero Curved Separator -->
+        <div class="hero-separator">
+            <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,20 C200,60 400,10 600,40 C800,70 1000,10 1200,50" 
+                      stroke="url(#separatorGradient)" 
+                      stroke-width="3" 
+                      fill="none" 
+                      opacity="0.8"/>
                 <defs>
-                    <linearGradient id="heroWaveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="rgba(245,247,250,1)"/>
-                        <stop offset="60%" stop-color="rgba(195,207,226,0.8)"/>
-                        <stop offset="100%" stop-color="rgba(255,255,255,0.5)"/>
+                    <linearGradient id="separatorGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="rgba(102,126,234,0.6)"/>
+                        <stop offset="25%" stop-color="rgba(118,75,162,0.8)"/>
+                        <stop offset="50%" stop-color="rgba(240,147,251,0.9)"/>
+                        <stop offset="75%" stop-color="rgba(118,75,162,0.8)"/>
+                        <stop offset="100%" stop-color="rgba(102,126,234,0.6)"/>
                     </linearGradient>
                 </defs>
             </svg>
