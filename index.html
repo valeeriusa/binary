@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobsSpace - Ultra Modern Job Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-4"></div>
+        <div class="gradient-orb orb-5"></div>
+    </div>
+
+    <!-- Transparent Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <span class="logo-text">JobsSpace</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="jobs.html" class="nav-link">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Jobs</span>
+                </a>
+                <a href="companies.html" class="nav-link">
+                    <i class="fas fa-building"></i>
+                    <span>Companies</span>
+                </a>
+                <a href="network.html" class="nav-link">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Cercul Candidaților</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+            </div>
+            
+            <div class="nav-search">
+                <div class="nav-search-container">
+                    <div class="nav-search-field">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search jobs...">
+                    </div>
+                    <button class="nav-search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn-ghost">Sign In</button>
+                <button class="btn-primary">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>🚀 New opportunities daily</span>
+                </div>
+                <h1 class="hero-title">
+                    Find Your Dream Job in the
+                    <span class="gradient-text">Digital Age</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover thousands of job opportunities with all the information you need. 
+                    Connect with top companies and take your career to the next level.
+                </p>
+                <div class="hero-cta">
+                    <div class="cta-buttons-hero">
+                        <button class="btn-primary-large">
+                            <span>Browse All Jobs</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="btn-ghost-large">
+                            <span>Post a Job</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Active Jobs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100K+</div>
+                        <div class="stat-label">Job Seekers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs Preview -->
+    <section class="featured-jobs-preview">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Featured <span class="gradient-text">Opportunities</span>
+                </h2>
+                <p class="section-subtitle">Latest handpicked jobs from top companies</p>
+            </div>
+
+            <!-- Featured Jobs Grid -->
+            <div class="featured-jobs-grid">
+                <!-- Preview Job Card 1 -->
+                <div class="job-card preview-card">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <div class="logo-gradient logo-1">G</div>
+                        </div>
+                        <div class="job-bookmark">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <h3 class="job-title">Senior Frontend Developer</h3>
+                        <p class="company-name">Google Inc.</p>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco • Remote</span>
+                        </div>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag tag-tech">React</span>
+                        <span class="tag tag-tech">TypeScript</span>
+                        <span class="tag tag-level">Senior</span>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">$120k - $180k</div>
+                        <button class="apply-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Preview Job Card 2 -->
+                <div class="job-card preview-card">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <div class="logo-gradient logo-2">M</div>
+                        </div>
+                        <div class="job-bookmark">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <h3 class="job-title">UX/UI Designer</h3>
+                        <p class="company-name">Microsoft</p>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Seattle • Hybrid</span>
+                        </div>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag tag-design">Figma</span>
+                        <span class="tag tag-design">Prototyping</span>
+                        <span class="tag tag-level">Mid-level</span>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">$95k - $140k</div>
+                        <button class="apply-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Preview Job Card 3 -->
+                <div class="job-card preview-card">
+                    <div class="job-header">
+                        <div class="company-logo">
+                            <div class="logo-gradient logo-3">A</div>
+                        </div>
+                        <div class="job-bookmark">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <h3 class="job-title">Product Manager</h3>
+                        <p class="company-name">Apple Inc.</p>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Cupertino • On-site</span>
+                        </div>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag tag-product">Strategy</span>
+                        <span class="tag tag-product">Analytics</span>
+                        <span class="tag tag-level">Senior</span>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">$130k - $180k</div>
+                        <button class="apply-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Jobs CTA -->
+            <div class="section-cta">
+                <a href="jobs.html" class="btn-primary-large">
+                    <span>View All Jobs</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Companies Preview -->
+    <section class="featured-companies-preview">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Top <span class="gradient-text">Companies</span> Hiring
+                </h2>
+                <p class="section-subtitle">Join innovative teams at leading organizations</p>
+            </div>
+
+            <div class="companies-preview-grid">
+                <div class="company-preview-card">
+                    <div class="company-logo-large">
+                        <div class="logo-gradient logo-1">G</div>
+                    </div>
+                    <h4>Google</h4>
+                    <p>150+ open positions</p>
+                </div>
+                <div class="company-preview-card">
+                    <div class="company-logo-large">
+                        <div class="logo-gradient logo-2">M</div>
+                    </div>
+                    <h4>Microsoft</h4>
+                    <p>80+ open positions</p>
+                </div>
+                <div class="company-preview-card">
+                    <div class="company-logo-large">
+                        <div class="logo-gradient logo-3">A</div>
+                    </div>
+                    <h4>Apple</h4>
+                    <p>120+ open positions</p>
+                </div>
+                <div class="company-preview-card">
+                    <div class="company-logo-large">
+                        <div class="logo-gradient logo-4">N</div>
+                    </div>
+                    <h4>Netflix</h4>
+                    <p>60+ open positions</p>
+                </div>
+            </div>
+
+            <!-- View All Companies CTA -->
+            <div class="section-cta">
+                <a href="companies.html" class="btn-outline-large">
+                    <span>Explore All Companies</span>
+                    <i class="fas fa-building"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Preview -->
+    <section class="network-preview">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Join <span class="gradient-text">Cercul Candidaților</span>
+                </h2>
+                <p class="section-subtitle">Connect with professionals and share your career journey</p>
+            </div>
+
+            <div class="network-preview-content">
+                <div class="network-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Professional Network</h4>
+                        <p>Connect with like-minded professionals in your field</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h4>Share Stories</h4>
+                        <p>Share your career milestones and inspire others</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Career Discussions</h4>
+                        <p>Get advice and tips from experienced professionals</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Join Network CTA -->
+            <div class="section-cta">
+                <a href="network.html" class="btn-primary-large">
+                    <span>Join the Network</span>
+                    <i class="fas fa-users-cog"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Find Your Dream Job?</h2>
+                <p class="cta-subtitle">Join thousands of professionals who found their perfect career match</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary-large">
+                        <span>Start Job Search</span>
+                        <i class="fas fa-rocket"></i>
+                    </button>
+                    <button class="btn-ghost-large">
+                        <span>Post a Job</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <span class="logo-text">JobsSpace</span>
+                    </div>
+                    <p class="footer-description">
+                        The modern way to find your next career opportunity. 
+                        Connect, apply, and grow with top companies worldwide.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>For Job Seekers</h4>
+                        <a href="#">Browse Jobs</a>
+                        <a href="#">Career Advice</a>
+                        <a href="#">Resume Builder</a>
+                        <a href="#">Salary Guide</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>For Employers</h4>
+                        <a href="#">Post Jobs</a>
+                        <a href="#">Find Candidates</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">Enterprise</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 JobsSpace. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

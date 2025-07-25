@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs - JobsSpace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-4"></div>
+        <div class="gradient-orb orb-5"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <span class="logo-text">JobsSpace</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="jobs.html" class="nav-link active">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Jobs</span>
+                </a>
+                <a href="companies.html" class="nav-link">
+                    <i class="fas fa-building"></i>
+                    <span>Companies</span>
+                </a>
+                <a href="network.html" class="nav-link">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Cercul Candidaților</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+            </div>
+
+            <div class="nav-search">
+                <div class="nav-search-container">
+                    <div class="nav-search-field">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search jobs...">
+                    </div>
+                    <button class="nav-search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn btn-ghost">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="btn btn-primary">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jobs Page Header -->
+    <section class="jobs-header">
+        <div class="container">
+            <div class="jobs-hero">
+                <h1 class="jobs-title">Find Your <span class="gradient-text">Dream Job</span></h1>
+                <p class="jobs-subtitle">Discover thousands of opportunities from top companies worldwide</p>
+                
+                <div class="advanced-search">
+                    <div class="search-row">
+                        <div class="search-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Job title, keywords..." class="search-input">
+                        </div>
+                        <div class="search-group">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" placeholder="Location" class="search-input">
+                        </div>
+                        <div class="search-group">
+                            <i class="fas fa-briefcase"></i>
+                            <select class="search-select">
+                                <option>All Categories</option>
+                                <option>Technology</option>
+                                <option>Design</option>
+                                <option>Marketing</option>
+                                <option>Sales</option>
+                                <option>Finance</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary search-btn">
+                            <i class="fas fa-search"></i>
+                            Search Jobs
+                        </button>
+                    </div>
+                </div>
+
+                <div class="job-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2,847</span>
+                        <span class="stat-label">Active Jobs</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">156</span>
+                        <span class="stat-label">Companies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">94%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Content -->
+    <section class="jobs-content">
+        <div class="container">
+            <div class="jobs-layout">
+                <!-- Filters Sidebar -->
+                <aside class="jobs-sidebar">
+                    <div class="filter-section">
+                        <h3><i class="fas fa-filter"></i> Filters</h3>
+                        
+                        <div class="filter-group">
+                            <h4>Job Type</h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                    Full-time
+                                    <span class="count">(1,234)</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Part-time
+                                    <span class="count">(567)</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Remote
+                                    <span class="count">(892)</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Contract
+                                    <span class="count">(234)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Experience Level</h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Entry Level
+                                    <span class="count">(345)</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Mid Level
+                                    <span class="count">(678)</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Senior Level
+                                    <span class="count">(456)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Salary Range</h4>
+                            <div class="salary-range">
+                                <input type="range" min="1000" max="10000" value="3000" class="salary-slider">
+                                <div class="salary-values">
+                                    <span>$1K</span>
+                                    <span>$10K+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Company Size</h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Startup (1-50)
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Medium (51-200)
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    Large (200+)
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline clear-filters">
+                            <i class="fas fa-times"></i>
+                            Clear All Filters
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Jobs List -->
+                <main class="jobs-main">
+                    <div class="jobs-header-bar">
+                        <div class="results-info">
+                            <span class="results-count">2,847 jobs found</span>
+                            <span class="results-text">Showing results for "All Jobs"</span>
+                        </div>
+                        <div class="sort-options">
+                            <select class="sort-select">
+                                <option>Most Recent</option>
+                                <option>Salary: High to Low</option>
+                                <option>Salary: Low to High</option>
+                                <option>Most Relevant</option>
+                            </select>
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                                <button class="view-btn" data-view="grid">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="jobs-grid" id="jobsContainer">
+                        <!-- Job Card 1 -->
+                        <div class="job-card" data-category="technology frontend">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <div class="logo-gradient logo-1">G</div>
+                                </div>
+                                <div class="job-meta">
+                                    <button class="job-bookmark">
+                                        <i class="far fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="job-info">
+                                <h3 class="job-title">Senior Frontend Developer</h3>
+                                <p class="company-name">Google Inc.</p>
+                                <div class="job-details">
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>San Francisco, CA</span>
+                                    </div>
+                                    <div class="job-type">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Full-time</span>
+                                    </div>
+                                </div>
+                                <div class="job-tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">TypeScript</span>
+                                    <span class="tag">Senior</span>
+                                </div>
+                                <div class="job-salary">$120,000 - $180,000</div>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-posted">2 days ago</span>
+                                <button class="apply-btn">
+                                    <span>Apply Now</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 2 -->
+                        <div class="job-card" data-category="design ui">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <div class="logo-gradient logo-2">M</div>
+                                </div>
+                                <div class="job-meta">
+                                    <button class="job-bookmark">
+                                        <i class="far fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="job-info">
+                                <h3 class="job-title">UX/UI Designer</h3>
+                                <p class="company-name">Microsoft</p>
+                                <div class="job-details">
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Seattle, WA</span>
+                                    </div>
+                                    <div class="job-type">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Full-time</span>
+                                    </div>
+                                </div>
+                                <div class="job-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">Prototyping</span>
+                                    <span class="tag">Mid-level</span>
+                                </div>
+                                <div class="job-salary">$95,000 - $140,000</div>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-posted">1 day ago</span>
+                                <button class="apply-btn">
+                                    <span>Apply Now</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 3 -->
+                        <div class="job-card" data-category="marketing digital">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <div class="logo-gradient logo-3">A</div>
+                                </div>
+                                <div class="job-meta">
+                                    <button class="job-bookmark">
+                                        <i class="far fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="job-info">
+                                <h3 class="job-title">Digital Marketing Manager</h3>
+                                <p class="company-name">Apple Inc.</p>
+                                <div class="job-details">
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Cupertino, CA</span>
+                                    </div>
+                                    <div class="job-type">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Full-time</span>
+                                    </div>
+                                </div>
+                                <div class="job-tags">
+                                    <span class="tag">SEO</span>
+                                    <span class="tag">Analytics</span>
+                                    <span class="tag">Senior</span>
+                                </div>
+                                <div class="job-salary">$110,000 - $160,000</div>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-posted">3 days ago</span>
+                                <button class="apply-btn">
+                                    <span>Apply Now</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 4 -->
+                        <div class="job-card" data-category="technology backend">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <div class="logo-gradient logo-4">N</div>
+                                </div>
+                                <div class="job-meta">
+                                    <button class="job-bookmark">
+                                        <i class="far fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="job-info">
+                                <h3 class="job-title">Backend Engineer</h3>
+                                <p class="company-name">Netflix</p>
+                                <div class="job-details">
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Los Gatos, CA</span>
+                                    </div>
+                                    <div class="job-type">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Full-time</span>
+                                    </div>
+                                </div>
+                                <div class="job-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">Mid-level</span>
+                                </div>
+                                <div class="job-salary">$130,000 - $190,000</div>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-posted">5 days ago</span>
+                                <button class="apply-btn">
+                                    <span>Apply Now</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- More job cards would be added here -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="page-btn prev" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Previous
+                        </button>
+                        <div class="page-numbers">
+                            <button class="page-number active">1</button>
+                            <button class="page-number">2</button>
+                            <button class="page-number">3</button>
+                            <span class="page-dots">...</span>
+                            <button class="page-number">10</button>
+                        </div>
+                        <button class="page-btn next">
+                            Next
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <span class="logo-text">JobsSpace</span>
+                    </div>
+                    <p class="footer-description">
+                        Connecting talented professionals with amazing opportunities worldwide.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>For Job Seekers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Salary Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>For Employers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Post a Job</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Talent Search</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 JobsSpace. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cercul Candidaților - JobsSpace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-4"></div>
+        <div class="gradient-orb orb-5"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <span class="logo-text">JobsSpace</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="jobs.html" class="nav-link">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Jobs</span>
+                </a>
+                <a href="companies.html" class="nav-link">
+                    <i class="fas fa-building"></i>
+                    <span>Companies</span>
+                </a>
+                <a href="network.html" class="nav-link active">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Cercul Candidaților</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+            </div>
+
+            <div class="nav-search">
+                <div class="nav-search-container">
+                    <div class="nav-search-field">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search network...">
+                    </div>
+                    <button class="nav-search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn btn-ghost">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="btn btn-primary">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Social Network Section - Cercul Candidaților -->
+    <section class="network-section">
+        <div class="network-container">
+            <!-- Stories Section -->
+            <div class="stories-section">
+                <h2 class="section-title">
+                    <span class="gradient-text">Cercul Candidaților</span> - Stories
+                </h2>
+                <div class="stories-container">
+                    <div class="story-item add-story">
+                        <div class="story-avatar">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <span>Add Story</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar" style="background: linear-gradient(45deg, #f093fb, #f5576c);">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiM4YjVjZjYiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QTwvdGV4dD4KPC9zdmc+" alt="Anna">
+                        </div>
+                        <span>Anna</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar" style="background: linear-gradient(45deg, #667eea, #764ba2);">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiMzYjgyZjYiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TTwvdGV4dD4KPC9zdmc+" alt="Mike">
+                        </div>
+                        <span>Mike</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar" style="background: linear-gradient(45deg, #11998e, #38ef7d);">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiMxMGI5ODEiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UzwvdGV4dD4KPC9zdmc+" alt="Sarah">
+                        </div>
+                        <span>Sarah</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar" style="background: linear-gradient(45deg, #f59e0b, #f97316);">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiNmNTllMGIiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SjwvdGV4dD4KPC9zdmc+" alt="John">
+                        </div>
+                        <span>John</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar" style="background: linear-gradient(45deg, #8b5cf6, #a855f7);">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiNlZjQ0NDQiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TDwvdGV4dD4KPC9zdmc+" alt="Lisa">
+                        </div>
+                        <span>Lisa</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar" style="background: linear-gradient(45deg, #06d6a0, #118ab2);">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiMwNmQ2YTAiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UjwvdGV4dD4KPC9zdmc+" alt="Robert">
+                        </div>
+                        <span>Robert</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Network Content -->
+            <div class="network-main">
+                <!-- Network Sidebar -->
+                <aside class="network-sidebar">
+                    <div class="sidebar-section">
+                        <h3><i class="fas fa-home"></i> Feed</h3>
+                        <div class="sidebar-menu">
+                            <a href="#" class="sidebar-item active">
+                                <i class="fas fa-newspaper"></i>
+                                <span>News Feed</span>
+                                <div class="notification-badge">5</div>
+                            </a>
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-users"></i>
+                                <span>Groups</span>
+                            </a>
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Events</span>
+                                <div class="notification-badge">2</div>
+                            </a>
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-bookmark"></i>
+                                <span>Saved Posts</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3><i class="fas fa-briefcase"></i> Career</h3>
+                        <div class="sidebar-menu">
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Career Tips</span>
+                            </a>
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Learning</span>
+                            </a>
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-handshake"></i>
+                                <span>Networking</span>
+                            </a>
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Achievements</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3><i class="fas fa-cog"></i> Settings</h3>
+                        <div class="sidebar-menu">
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-user-edit"></i>
+                                <span>Edit Profile</span>
+                            </a>
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Privacy</span>
+                            </a>
+                            <a href="#" class="sidebar-item">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Posts Feed -->
+                <div class="posts-feed">
+                    <!-- Create Post -->
+                    <div class="create-post">
+                        <div class="create-post-header">
+                            <div class="user-avatar">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiM4YjVjZjYiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+WTwvdGV4dD4KPC9zdmc+" alt="You">
+                            </div>
+                            <input type="text" placeholder="Ce gândești, candidat?" class="post-input">
+                        </div>
+                        <div class="create-post-actions">
+                            <button class="post-action-btn">
+                                <i class="fas fa-image"></i>
+                                <span>Photo</span>
+                            </button>
+                            <button class="post-action-btn">
+                                <i class="fas fa-video"></i>
+                                <span>Video</span>
+                            </button>
+                            <button class="post-action-btn">
+                                <i class="fas fa-calendar"></i>
+                                <span>Event</span>
+                            </button>
+                            <button class="post-btn">Post</button>
+                        </div>
+                    </div>
+
+                    <!-- Post 1 -->
+                    <div class="post-item">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="user-avatar">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiNmNTllMGIiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QTwvdGV4dD4KPC9zdmc+" alt="Alex">
+                                </div>
+                                <div class="user-info">
+                                    <h4>Alex Johnson</h4>
+                                    <p>Senior Developer at TechCorp • 2h</p>
+                                </div>
+                            </div>
+                            <button class="post-menu">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                        <div class="post-content">
+                            <p>Tocmai am terminat un proiect amazing cu React și TypeScript! 🚀 E incredibil cât de mult am învățat în ultimele 3 luni. Pentru toți developerii care încep cu TypeScript, îl recomand cu căldură!</p>
+                            <div class="post-image">
+                                <div style="background: linear-gradient(135deg, #667eea, #764ba2); height: 200px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                                    🚀 React + TypeScript Project
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <span>👍 24 • 💬 8 • 📤 3</span>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn like-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>Like</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="far fa-comment"></i>
+                                <span>Comment</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="far fa-share-square"></i>
+                                <span>Share</span>
+                            </button>
+                        </div>
+                        <div class="comments-section" style="display: none;">
+                            <div class="comment-item">
+                                <div class="user-avatar small">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiMxMGI5ODEiLz4KPHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UzwvdGV4dD4KPC9zdmc+" alt="Sarah">
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-bubble">
+                                        <strong>Sarah Miller</strong>
+                                        <p>Felicitări! Și eu sunt în procesul de învățare TypeScript. Ai vreo resursă recomandată?</p>
+                                    </div>
+                                    <div class="comment-actions">
+                                        <button class="comment-like">Like</button>
+                                        <button class="comment-reply">Reply</button>
+                                        <span class="comment-time">1h</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-comment">
+                                <div class="user-avatar small">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiM4YjVjZjYiLz4KPHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+WTwvdGV4dD4KPC9zdmc+" alt="You">
+                                </div>
+                                <input type="text" placeholder="Scrie un comentariu..." class="comment-input">
+                                <button class="send-comment">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post 2 -->
+                    <div class="post-item">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="user-avatar">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiMxMGI5ODEiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TTwvdGV4dD4KPC9zdmc+" alt="Maria">
+                                </div>
+                                <div class="user-info">
+                                    <h4>Maria Popescu</h4>
+                                    <p>UX Designer • 4h</p>
+                                </div>
+                            </div>
+                            <button class="post-menu">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                        <div class="post-content">
+                            <p>Sfat pentru interviuri: Pregătiți-vă întrebări pentru intervievator! Arată că sunteți cu adevărat interesați de companie și rolul respectiv. 💼✨</p>
+                        </div>
+                        <div class="post-stats">
+                            <span>👍 31 • 💬 12 • 📤 7</span>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn like-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>Like</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="far fa-comment"></i>
+                                <span>Comment</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="far fa-share-square"></i>
+                                <span>Share</span>
+                            </button>
+                        </div>
+                        <div class="comments-section" style="display: none;">
+                            <div class="add-comment">
+                                <div class="user-avatar small">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiM4YjVjZjYiLz4KPHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+WTwvdGV4dD4KPC9zdmc+" alt="You">
+                                </div>
+                                <input type="text" placeholder="Scrie un comentariu..." class="comment-input">
+                                <button class="send-comment">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post 3 -->
+                    <div class="post-item">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="user-avatar">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiMzYjgyZjYiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RDwvdGV4dD4KPC9zdmc+" alt="David">
+                                </div>
+                                <div class="user-info">
+                                    <h4>David Chen</h4>
+                                    <p>Data Analyst • 6h</p>
+                                </div>
+                            </div>
+                            <button class="post-menu">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                        <div class="post-content">
+                            <p>🎉 Sunt fericit să anunț că am primit o ofertă de job ca Senior Data Analyst! Mulțumesc tuturor pentru suport și sfaturi! 🙏</p>
+                            <div class="post-tags">
+                                <span class="tag">#JobOffer</span>
+                                <span class="tag">#DataAnalyst</span>
+                                <span class="tag">#Grateful</span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <span>👍 87 • 💬 23 • 📤 15</span>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn like-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>Like</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="far fa-comment"></i>
+                                <span>Comment</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="far fa-share-square"></i>
+                                <span>Share</span>
+                            </button>
+                        </div>
+                        <div class="comments-section" style="display: none;">
+                            <div class="add-comment">
+                                <div class="user-avatar small">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiM4YjVjZjYiLz4KPHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+WTwvdGV4dD4KPC9zdmc+" alt="You">
+                                </div>
+                                <input type="text" placeholder="Scrie un comentariu..." class="comment-input">
+                                <button class="send-comment">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post 4 -->
+                    <div class="post-item">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="user-avatar">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiNlZjQ0NDQiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TDwvdGV4dD4KPC9zdmc+" alt="Lisa">
+                                </div>
+                                <div class="user-info">
+                                    <h4>Lisa Wang</h4>
+                                    <p>Product Manager at StartupXYZ • 1d</p>
+                                </div>
+                            </div>
+                            <button class="post-menu">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                        <div class="post-content">
+                            <p>Networking-ul este key în carieră! Am participat azi la un event tech și am cunoscut oameni fantastici. Nu vă fie teamă să vă prezentați! 🤝</p>
+                            <div class="post-image">
+                                <div style="background: linear-gradient(135deg, #f093fb, #f5576c); height: 150px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem;">
+                                    🎯 Tech Networking Event 2024
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <span>👍 45 • 💬 18 • 📤 9</span>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn like-btn">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>Like</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="far fa-comment"></i>
+                                <span>Comment</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="far fa-share-square"></i>
+                                <span>Share</span>
+                            </button>
+                        </div>
+                        <div class="comments-section" style="display: none;">
+                            <div class="add-comment">
+                                <div class="user-avatar small">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiM4YjVjZjYiLz4KPHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+WTwvdGV4dD4KPC9zdmc+" alt="You">
+                                </div>
+                                <input type="text" placeholder="Scrie un comentariu..." class="comment-input">
+                                <button class="send-comment">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <span class="logo-text">JobsSpace</span>
+                    </div>
+                    <p class="footer-description">
+                        Connecting talented professionals with amazing opportunities worldwide.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>For Job Seekers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Salary Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>For Employers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Post a Job</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Talent Search</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 JobsSpace. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
