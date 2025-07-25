@@ -16,16 +16,10 @@ let lastScrollTop = 0;
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
-    // Add backdrop blur effect on scroll
-    if (scrollTop > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.15)';
-        navbar.style.backdropFilter = 'blur(25px)';
-        navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.3)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.1)';
-        navbar.style.backdropFilter = 'blur(20px)';
-        navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.2)';
-    }
+    // Keep navbar completely transparent on scroll
+    navbar.style.background = 'transparent';
+    navbar.style.backdropFilter = 'none';
+    navbar.style.borderBottom = 'none';
     
     // Hide/show navbar on scroll
     if (scrollTop > lastScrollTop && scrollTop > 100) {
