@@ -608,11 +608,476 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize smooth scroll
     document.documentElement.style.scrollBehavior = 'smooth';
     
+    // Initialize Social Network functionality
+    initializeSocialNetwork();
+    
     // Show welcome notification
     setTimeout(() => {
         showNotification('Welcome to JobsSpace! Find your dream job today 🚀', 'info');
     }, 1000);
 });
+
+// ===== SOCIAL NETWORK FUNCTIONALITY =====
+
+// Social Network Elements
+const networkSection = document.querySelector('.network-section');
+const storyItems = document.querySelectorAll('.story-item');
+const sidebarItems = document.querySelectorAll('.sidebar-item');
+const postInput = document.querySelector('.post-input');
+const postBtn = document.querySelector('.post-btn');
+const actionBtns = document.querySelectorAll('.action-btn');
+const commentBtns = document.querySelectorAll('.comment-btn');
+
+// Initialize Social Network when section is visible
+function initializeSocialNetwork() {
+    if (!networkSection) return;
+    
+    setupSocialEventListeners();
+    setupPostInteractions();
+    setupCommentSystems();
+}
+
+function setupSocialEventListeners() {
+    // Story interactions
+    storyItems.forEach(story => {
+        story.addEventListener('click', handleStoryClick);
+    });
+    
+    // Sidebar navigation
+    sidebarItems.forEach(item => {
+        item.addEventListener('click', handleSidebarClick);
+    });
+    
+    // Post creation
+    if (postInput) {
+        postInput.addEventListener('focus', () => {
+            postInput.parentElement.style.transform = 'scale(1.02)';
+            postInput.parentElement.style.boxShadow = '0 8px 30px rgba(139, 92, 246, 0.15)';
+        });
+        
+        postInput.addEventListener('blur', () => {
+            postInput.parentElement.style.transform = 'scale(1)';
+            postInput.parentElement.style.boxShadow = '';
+        });
+    }
+    
+    if (postBtn) {
+        postBtn.addEventListener('click', handleCreatePost);
+    }
+}
+
+function setupPostInteractions() {
+    // Like, Comment, Share buttons
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.like-btn')) {
+            handleLikePost(e);
+        } else if (e.target.closest('.comment-btn')) {
+            handleCommentToggle(e);
+        } else if (e.target.closest('.share-btn')) {
+            handleSharePost(e);
+        } else if (e.target.closest('.send-comment')) {
+            handleSendComment(e);
+        }
+    });
+}
+
+function setupCommentSystems() {
+    // Comment input interactions
+    const commentInputs = document.querySelectorAll('.comment-input');
+    commentInputs.forEach(input => {
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleSendComment(e);
+            }
+        });
+    });
+}
+
+function handleStoryClick(e) {
+    const storyItem = e.currentTarget;
+    const storyName = storyItem.querySelector('span').textContent;
+    
+    if (storyItem.classList.contains('add-story')) {
+        // Handle add story
+        showStoryModal('create');
+    } else {
+        // View story
+        showStoryModal('view', storyName);
+    }
+    
+    // Animation
+    storyItem.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        storyItem.style.transform = 'translateY(-5px)';
+    }, 150);
+}
+
+function handleSidebarClick(e) {
+    e.preventDefault();
+    
+    // Remove active from all items
+    sidebarItems.forEach(item => item.classList.remove('active'));
+    
+    // Add active to clicked item
+    e.currentTarget.classList.add('active');
+    
+    // Add ripple effect
+    createRipple(e.currentTarget, e);
+    
+    // Filter posts based on sidebar selection
+    const itemText = e.currentTarget.querySelector('span').textContent;
+    filterPosts(itemText);
+    
+    showNotification(`Viewing ${itemText}`, 'info');
+}
+
+function handleCreatePost() {
+    const postText = postInput.value.trim();
+    
+    if (!postText) {
+        showNotification('Please write something to post!', 'error');
+        return;
+    }
+    
+    // Create new post
+    createNewPost(postText);
+    
+    // Clear input
+    postInput.value = '';
+    
+    // Animation
+    postBtn.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        postBtn.style.transform = 'scale(1)';
+    }, 150);
+    
+    showNotification('Post created successfully! 🎉', 'success');
+}
+
+function handleLikePost(e) {
+    e.preventDefault();
+    const likeBtn = e.target.closest('.like-btn');
+    const icon = likeBtn.querySelector('i');
+    const span = likeBtn.querySelector('span');
+    const postStats = likeBtn.closest('.post-item').querySelector('.post-stats');
+    
+    // Toggle like state
+    if (likeBtn.classList.contains('liked')) {
+        // Unlike
+        likeBtn.classList.remove('liked');
+        icon.className = 'far fa-thumbs-up';
+        span.textContent = 'Like';
+        likeBtn.style.color = '';
+        
+        // Update stats
+        updatePostStats(postStats, 'like', -1);
+    } else {
+        // Like
+        likeBtn.classList.add('liked');
+        icon.className = 'fas fa-thumbs-up';
+        span.textContent = 'Liked';
+        likeBtn.style.color = '#3b82f6';
+        
+        // Animation
+        icon.style.transform = 'scale(1.3)';
+        setTimeout(() => {
+            icon.style.transform = 'scale(1)';
+        }, 200);
+        
+        // Update stats
+        updatePostStats(postStats, 'like', 1);
+        
+        // Show heart animation
+        showLikeAnimation(likeBtn);
+    }
+}
+
+function handleCommentToggle(e) {
+    e.preventDefault();
+    const commentBtn = e.target.closest('.comment-btn');
+    const postItem = commentBtn.closest('.post-item');
+    const commentsSection = postItem.querySelector('.comments-section');
+    
+    if (commentsSection.style.display === 'none' || !commentsSection.style.display) {
+        // Show comments
+        commentsSection.style.display = 'block';
+        commentsSection.style.opacity = '0';
+        commentsSection.style.transform = 'translateY(10px)';
+        
+        setTimeout(() => {
+            commentsSection.style.opacity = '1';
+            commentsSection.style.transform = 'translateY(0)';
+        }, 10);
+        
+        // Focus comment input
+        const commentInput = commentsSection.querySelector('.comment-input');
+        if (commentInput) {
+            setTimeout(() => commentInput.focus(), 300);
+        }
+    } else {
+        // Hide comments
+        commentsSection.style.opacity = '0';
+        commentsSection.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+            commentsSection.style.display = 'none';
+        }, 300);
+    }
+}
+
+function handleSharePost(e) {
+    e.preventDefault();
+    const shareBtn = e.target.closest('.share-btn');
+    const postItem = shareBtn.closest('.post-item');
+    const postStats = postItem.querySelector('.post-stats');
+    
+    // Animation
+    shareBtn.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+        shareBtn.style.transform = 'scale(1)';
+    }, 150);
+    
+    // Update stats
+    updatePostStats(postStats, 'share', 1);
+    
+    // Show share options (simplified)
+    showNotification('Post shared! 📤', 'success');
+}
+
+function handleSendComment(e) {
+    e.preventDefault();
+    const sendBtn = e.target.closest('.send-comment');
+    const commentInput = e.target.closest('.add-comment').querySelector('.comment-input');
+    const commentText = commentInput.value.trim();
+    
+    if (!commentText) return;
+    
+    // Create new comment
+    createNewComment(sendBtn, commentText);
+    
+    // Clear input
+    commentInput.value = '';
+    
+    // Animation
+    sendBtn.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+        sendBtn.style.transform = 'scale(1)';
+    }, 150);
+}
+
+function createNewPost(text) {
+    const postsContainer = document.querySelector('.posts-feed');
+    const newPost = document.createElement('div');
+    newPost.className = 'post-item';
+    newPost.style.opacity = '0';
+    newPost.style.transform = 'translateY(20px)';
+    
+    newPost.innerHTML = `
+        <div class="post-header">
+            <div class="post-user">
+                <div class="user-avatar">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiM4YjVjZjYiLz4KPHRleHQgeD0iMjAiIHk9IjI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+WTwvdGV4dD4KPC9zdmc+" alt="You">
+                </div>
+                <div class="user-info">
+                    <h4>You</h4>
+                    <p>Just now</p>
+                </div>
+            </div>
+            <button class="post-menu">
+                <i class="fas fa-ellipsis-h"></i>
+            </button>
+        </div>
+        <div class="post-content">
+            <p>${text}</p>
+        </div>
+        <div class="post-stats">
+            <span>👍 0 • 💬 0 • 📤 0</span>
+        </div>
+        <div class="post-actions">
+            <button class="action-btn like-btn">
+                <i class="far fa-thumbs-up"></i>
+                <span>Like</span>
+            </button>
+            <button class="action-btn comment-btn">
+                <i class="far fa-comment"></i>
+                <span>Comment</span>
+            </button>
+            <button class="action-btn share-btn">
+                <i class="far fa-share-square"></i>
+                <span>Share</span>
+            </button>
+        </div>
+        <div class="comments-section" style="display: none;"></div>
+    `;
+    
+    // Insert after create post
+    const createPost = postsContainer.querySelector('.create-post');
+    createPost.insertAdjacentElement('afterend', newPost);
+    
+    // Animate in
+    setTimeout(() => {
+        newPost.style.opacity = '1';
+        newPost.style.transform = 'translateY(0)';
+    }, 100);
+}
+
+function createNewComment(sendBtn, text) {
+    const addComment = sendBtn.closest('.add-comment');
+    const commentsSection = addComment.closest('.comments-section');
+    const postStats = commentsSection.closest('.post-item').querySelector('.post-stats');
+    
+    const newComment = document.createElement('div');
+    newComment.className = 'comment-item';
+    newComment.style.opacity = '0';
+    newComment.style.transform = 'translateX(-20px)';
+    
+    newComment.innerHTML = `
+        <div class="user-avatar small">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiM4YjVjZjYiLz4KPHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+WTwvdGV4dD4KPC9zdmc+" alt="You">
+        </div>
+        <div class="comment-content">
+            <div class="comment-bubble">
+                <strong>You</strong>
+                <p>${text}</p>
+            </div>
+            <div class="comment-actions">
+                <button class="comment-like">Like</button>
+                <button class="comment-reply">Reply</button>
+                <span class="comment-time">Now</span>
+            </div>
+        </div>
+    `;
+    
+    // Insert before add comment
+    addComment.insertAdjacentElement('beforebegin', newComment);
+    
+    // Update post stats
+    updatePostStats(postStats, 'comment', 1);
+    
+    // Animate in
+    setTimeout(() => {
+        newComment.style.opacity = '1';
+        newComment.style.transform = 'translateX(0)';
+    }, 100);
+}
+
+function updatePostStats(statsElement, type, change) {
+    const statsText = statsElement.textContent;
+    const regex = type === 'like' ? /👍 (\d+)/ : type === 'comment' ? /💬 (\d+)/ : /📤 (\d+)/;
+    const match = statsText.match(regex);
+    
+    if (match) {
+        const currentCount = parseInt(match[1]);
+        const newCount = Math.max(0, currentCount + change);
+        const emoji = type === 'like' ? '👍' : type === 'comment' ? '💬' : '📤';
+        
+        const newStatsText = statsText.replace(regex, `${emoji} ${newCount}`);
+        statsElement.textContent = newStatsText;
+    }
+}
+
+function showLikeAnimation(element) {
+    const heart = document.createElement('div');
+    heart.innerHTML = '❤️';
+    heart.style.cssText = `
+        position: absolute;
+        font-size: 1.5rem;
+        pointer-events: none;
+        z-index: 1000;
+        animation: likeFloat 1s ease-out forwards;
+    `;
+    
+    const rect = element.getBoundingClientRect();
+    heart.style.left = rect.left + rect.width / 2 + 'px';
+    heart.style.top = rect.top + rect.height / 2 + 'px';
+    
+    document.body.appendChild(heart);
+    
+    setTimeout(() => {
+        document.body.removeChild(heart);
+    }, 1000);
+}
+
+function showStoryModal(type, name = '') {
+    const modal = document.createElement('div');
+    modal.className = 'story-modal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `;
+    
+    const content = type === 'create' ? 
+        '<h2 style="color: white; text-align: center;">Create Story Feature Coming Soon! 📸</h2>' :
+        `<h2 style="color: white; text-align: center;">Viewing ${name}'s Story 👀</h2>`;
+    
+    modal.innerHTML = `
+        <div style="background: var(--glass-bg); backdrop-filter: blur(20px); border-radius: 20px; padding: 3rem; text-align: center; border: 1px solid var(--glass-border);">
+            ${content}
+            <button onclick="this.closest('.story-modal').remove()" style="margin-top: 2rem; background: var(--gradient-purple); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 12px; cursor: pointer;">Close</button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    setTimeout(() => {
+        modal.style.opacity = '1';
+    }, 10);
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+function filterPosts(filterType) {
+    const posts = document.querySelectorAll('.post-item');
+    
+    posts.forEach((post, index) => {
+        // Simple animation for filtering
+        post.style.opacity = '0.5';
+        setTimeout(() => {
+            post.style.opacity = '1';
+        }, index * 100);
+    });
+}
+
+// Add CSS for like animation
+const socialStyle = document.createElement('style');
+socialStyle.textContent = `
+    @keyframes likeFloat {
+        0% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-50px) scale(1.5);
+        }
+    }
+    
+    .comments-section {
+        transition: all 0.3s ease;
+    }
+    
+    .story-item:hover .story-avatar {
+        transform: scale(1.1);
+    }
+    
+    .post-item {
+        transition: all 0.3s ease;
+    }
+`;
+document.head.appendChild(socialStyle);
 
 // ===== EXPORT FOR MODULES (if needed) =====
 if (typeof module !== 'undefined' && module.exports) {
@@ -620,6 +1085,7 @@ if (typeof module !== 'undefined' && module.exports) {
         showNotification,
         createRipple,
         filterJobs,
-        performSearch
+        performSearch,
+        initializeSocialNetwork
     };
 }
